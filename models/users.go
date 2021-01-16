@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	hmacSecretKey = "secret-hmac-key-blue-horse-only-in-dev"
+	somethingHmac = "hmac-blue-horse-only-in-dev"
 )
 
 var (
@@ -96,7 +96,7 @@ func (e modelError) Public() string {
 // NewUserService returns a connection to the DB
 func NewUserService(db *gorm.DB) UserService {
 	ug := &userGorm{db}
-	hmac := hash.NewHMAC(hmacSecretKey)
+	hmac := hash.NewHMAC(somethingHmac)
 	uv := newUserValidator(ug, hmac)
 	return &userService{
 		UserDB: uv,
