@@ -379,20 +379,6 @@ func (uv *userValidator) passwordHashRequired(user *User) error {
 	return nil
 }
 
-func (uv *userValidator) rememberMinBytes(user *User) error {
-	if user.Remember == "" {
-		return nil
-	}
-	n, err := rand.NBytes(user.Remember)
-	if err != nil {
-		return err
-	}
-	if n < 32 {
-		return ErrRememberTooShort
-	}
-	return nil
-}
-
 func (uv *userValidator) rememberHashRequired(user *User) error {
 	if user.RememberHash == "" {
 		return ErrRememberRequired

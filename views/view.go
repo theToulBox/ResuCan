@@ -2,6 +2,7 @@ package views
 
 import (
 	"bytes"
+	"fmt"
 	"html/template"
 	"io"
 	"net/http"
@@ -93,7 +94,10 @@ func (v *View) Render(w http.ResponseWriter, r *http.Request, data interface{}) 
 			http.StatusInternalServerError)
 		return
 	}
-	io.Copy(w, &buf)
+	err := io.Copy(w, &buf)
+	if err != nil {
+		fmt.Printf("IOError %v", err)
+	}
 }
 
 // ServeHTTP accepts a ptr to a view and renders

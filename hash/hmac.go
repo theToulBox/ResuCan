@@ -4,6 +4,7 @@ import (
 	"crypto/hmac"
 	"crypto/sha256"
 	"encoding/base64"
+	"fmt"
 	"hash"
 )
 
@@ -23,7 +24,10 @@ type HMAC struct {
 // Hash generates a HMAC
 func (h HMAC) Hash(input string) string {
 	h.hmac.Reset()
-	h.hmac.Write([]byte(input))
+	err := h.hmac.Write([]byte(input))
+	if err != nil {
+		fmt.Printf("ErrorWithHmac %v", err)
+	}
 	b := h.hmac.Sum(nil)
 	return base64.URLEncoding.EncodeToString(b)
 }
