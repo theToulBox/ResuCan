@@ -94,7 +94,7 @@ func (v *View) Render(w http.ResponseWriter, r *http.Request, data interface{}) 
 			http.StatusInternalServerError)
 		return
 	}
-	err := io.Copy(w, &buf)
+	_, err = io.Copy(w, &buf)
 	if err != nil {
 		fmt.Printf("IOError %v", err)
 	}

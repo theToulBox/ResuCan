@@ -24,7 +24,7 @@ type HMAC struct {
 // Hash generates a HMAC
 func (h HMAC) Hash(input string) string {
 	h.hmac.Reset()
-	err := h.hmac.Write([]byte(input))
+	_, err := h.hmac.Write([]byte(input))
 	if err != nil {
 		fmt.Printf("ErrorWithHmac %v", err)
 	}
