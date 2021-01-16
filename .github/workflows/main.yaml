@@ -1,0 +1,87 @@
+name: 9-2-5-Resume-Scan
+on:
+  push:
+	tags:
+	  - v*
+	branches:
+	  - main
+  pull_request:
+	
+env:
+jobs:
+  golang_ci:
+	if: github.ref != 'refs/heads/main'
+	name: Lint
+	runs-on: ubuntu-latest
+	steps:
+	  - uses: actions/checkout@v2
+	  - name: golangci-lint
+		uses: golangci/golangci-lint-action@v2
+		with:
+		  version: v1.29
+  static_security_scan:
+	if: github.ref != 'refs/heads/main'
+	runs-on: ubuntu-latest
+	steps:
+	  - name: Checkout Source
+		uses: actions/checkout@v2
+	  - name: Run GoSec Security Scanner
+		uses: securego/gosec@master
+		with:
+		  args: ./...
+  secrets_check:
+	  if: github.ref != 'refs/heads/main'
+	  runs-on: ubuntu-latest
+	  steps:
+		- uses: actions/checkout@v2
+		- uses: max/secret-scan@master
+  test:
+	name: Test
+	if: github.ref != 'refs/heads/main'
+	runs-on: ubuntu-latest
+	steps:
+	  - name : checkout
+		uses: actions/checkout@v2
+
+	  - uses: actions/setup-go@v2
+		with:
+		  go-version: '1.14'
+	  - name: run tests
+		run: go test -json ./... > test.json
+
+	  - name: annotate tests
+		if: always()
+		uses: guyarb/golang-test-annotations@v0.2.0
+		with:
+		  test-results: test.json
+  deploy:
+	if: github.ref == 'refs/heads/main'
+	runs-on: ubuntu-latest
+	steps:
+	  - uses: actions/checkout@v2
+	  - name: Generate deployment package
+		run: zip go.zip build.sh Buildfile Procfile application.go
+	  
+	  - name: Get timestamp
+		uses: gerred/actions/current-time@master
+		id: current-time
+	  
+	  - name: Run string replace
+		uses: frabert/replace-string-action@master
+		id: format-time
+		with:
+		  pattern: '[:\.]+'
+		  string: "${{ steps.current-time.outputs.time }}"
+		  replace-with: '-'
+		  flags: 'g'
+	  - name: Deploy to Elastic Beanstalk
+		uses: einaregilsson/beanstalk-deploy@v10
+		with:
+		  aws_access_key: ${{secrets.AWS_ACCESS_925_KEY_ID}}
+		  aws_secret_key: ${{secrets.AWS_SECRET_ACCESS_925_KEY}}
+		  application_name: "the925resumescan"
+		  environment_name: "the925resumescan-env"
+		  region: "us-west-2"
+		  version_label: "godevsecops-${{ steps.format-time.outputs.replaced }}"
+		  deployment_package: go.zip
+	
