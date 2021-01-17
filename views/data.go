@@ -2,8 +2,6 @@ package views
 
 import (
 	"log"
-
-	"github.com/llcranmer/9-2-5-Resume-Scan/models"
 )
 
 const (
@@ -26,7 +24,6 @@ const (
 // webpage
 type Data struct {
 	Alert *Alert
-	User  *models.User
 	Yield interface{}
 }
 

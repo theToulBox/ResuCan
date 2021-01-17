@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -11,6 +10,6 @@ import (
 func main() {
 	staticC := controllers.NewStatic()
 	r := mux.NewRouter()
-	r.Handle("/home", staticC.Home).Methods("GET")
-	log.Fatal(http.ListenAndServe(":5000", nil))
+	r.Handle("/", staticC.Home).Methods("GET")
+	http.ListenAndServe(":5000", r)
 }
