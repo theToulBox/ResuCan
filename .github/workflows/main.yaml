@@ -79,7 +79,7 @@ jobs:
           aws_access_key: ${{secrets.AWS_ACCESS_925_KEY_ID}}
           aws_secret_key: ${{secrets.AWS_SECRET_ACCESS_925_KEY}}
           application_name: "ResuScan"
-          environment_name: "resucan-env"
+          environment_name: "resuscan-prod"
           region: "us-west-2"
           wait_for_deployment: true
           wait_for_environment_recovery: 600
