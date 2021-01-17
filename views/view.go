@@ -1,6 +1,7 @@
 package views
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 	"path/filepath"
@@ -73,5 +74,8 @@ func (v *View) Render(w http.ResponseWriter, data interface{}) error {
 // ServeHTTP accepts a ptr to a view and renders
 // the view view writing it as http.ResponseWriter
 func (v *View) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	v.Render(w, nil)
+	err := v.Render(w, nil)
+	if err != nil {
+		fmt.Printf("RenderError %v")
+	}
 }
