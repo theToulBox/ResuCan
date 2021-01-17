@@ -1,19 +1,16 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
+
+	"github.com/gorilla/mux"
+	"github.com/llcranmer/9-2-5-Resume-Scan/controllers"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path == "/" {
-		fmt.Fprintf(w, "Hello World! Append a name to the URL to say hello. For example, use %s/Mary to say hello to Mary.", r.Host)
-	} else {
-		fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
-	}
-}
-
 func main() {
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":5000", nil)
+	staticC := controllers.NewStatic()
+	r := mux.NewRouter()
+	r.Handle("/", staticC.Home).Methods("GET")
+	log.Fatal(http.ListenAndServe(":5000", r))
 }
