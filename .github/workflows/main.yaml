@@ -59,7 +59,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Generate deployment package
-        run: zip -r go.zip *
+        run: zip go.zip application.go build.sh Buildfile Procfile controllers/* views/*
       
       - name: Get timestamp
         uses: gerred/actions/current-time@master
@@ -78,9 +78,9 @@ jobs:
         with:
           aws_access_key: ${{secrets.AWS_ACCESS_925_KEY_ID}}
           aws_secret_key: ${{secrets.AWS_SECRET_ACCESS_925_KEY}}
-          application_name: "the925resumescan"
-          environment_name: "the925resumescan-env"
+          application_name: "ResuCan"
+          environment_name: "resucan-env"
           region: "us-west-2"
-          version_label: "godevsecops-${{ steps.format-time.outputs.replaced }}"
+          version_label: "ResuCan-${{ steps.format-time.outputs.replaced }}"
           deployment_package: go.zip
     
