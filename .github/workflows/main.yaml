@@ -59,7 +59,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Generate deployment package
-        run: zip go.zip *
+        run: zip -r go.zip *
       
       - name: Get timestamp
         uses: gerred/actions/current-time@master
