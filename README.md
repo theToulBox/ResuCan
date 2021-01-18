@@ -1,6 +1,5 @@
-#  925 Resume Scan
+#  ResuCan
 
+## Can you resume beat the ATS? 
+### It will with ResuCan
 
-## The free resume scanner
-
-To deploy zip -r build.sh Buildfile Procfile application.go
