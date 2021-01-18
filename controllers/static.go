@@ -12,6 +12,6 @@ type Static struct {
 // the web app.
 func NewStatic() *Static {
 	return &Static{
-		Home: views.NewView("bootstrap", "static/home"),
+		Home: views.NewView("css", "static/home"),
 	}
 }
