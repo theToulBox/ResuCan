@@ -10,7 +10,9 @@ import (
 
 func main() {
 	staticC := controllers.NewStatic()
+	staticDir := "/public/"
 	r := mux.NewRouter()
 	r.Handle("/", staticC.Home).Methods("GET")
+	r.PathPrefix(staticDir).Handler(http.StripPrefix(staticDir, http.FileServer(http.Dir("."+staticDir))))
 	log.Fatal(http.ListenAndServe(":5000", r))
 }
