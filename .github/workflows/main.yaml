@@ -78,11 +78,22 @@ jobs:
         with:
           aws_access_key: ${{secrets.AWS_ACCESS_925_KEY_ID}}
           aws_secret_key: ${{secrets.AWS_SECRET_ACCESS_925_KEY}}
-          application_name: "ResuScan"
-          environment_name: "resuscan-prod"
+          application_name: "ResuCan"
+          environment_name: "ResusCan-Prod"
           region: "us-west-2"
           wait_for_deployment: true
           wait_for_environment_recovery: 600
           version_label: "ResuCan-${{ steps.format-time.outputs.replaced }}"
           deployment_package: go.zip
-    
+  dynamic_security_scan:
+    if: github.ref == 'refs/heads/main'
+    name: OWASP ZAP Dynamic Security Scan
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.2.0
+        with:
+          token: ${{ secrets.ZAP_TOKEN }}
+          target: 'https://resucan.com'
+          cmd_options: '-a'
