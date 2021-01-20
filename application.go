@@ -13,6 +13,8 @@ func main() {
 	staticDir := "/public/"
 	r := mux.NewRouter()
 	r.Handle("/", staticC.Home).Methods("GET")
+	r.Handle("/privacy-policy", staticC.Privacy).Methods("GET")
+	r.Handle("/terms-and-conditions", staticC.Terms).Methods("GET")
 	r.PathPrefix(staticDir).Handler(http.StripPrefix(staticDir, http.FileServer(http.Dir("."+staticDir))))
 	log.Fatal(http.ListenAndServe(":5000", r))
 }

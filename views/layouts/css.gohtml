@@ -3,6 +3,39 @@
 <html lang="en" class="h-100">
     <head>
     <title>ResuCan | Applicant Tracking System Resume Scanner.</title>
+    <meta charset="utf-8" />
+      <meta
+        content="Convert visitors into customers through powerful positioning and crystal-clear messaging. Use Lander as a copywriting template to communicate your value to your audience"
+        name="description"
+      />
+      <meta
+        content="ResuCan | Professional Resume Critique"
+        property="og:title"
+      />
+      <meta
+        content="Convert visitors into customers through powerful positioning and crystal-clear messaging. Use Lander as a copywriting template to communicate your value to your audience"
+        property="og:description"
+      />
+      <meta
+        content="https://uploads-ssl.webflow.com/5ea1b995c6b4c10f74406a08/5ea1f11934a4540f7b574e9f_product-shot.png"
+        property="og:image"
+      />
+      <meta
+        content="ResuCan | Professional Resume Critique"
+        property="twitter:title"
+      />
+      <meta
+        content="Convert visitors into customers through powerful positioning and crystal-clear messaging. Use Lander as a copywriting template to communicate your value to your audience"
+        property="twitter:description"
+      />
+      <meta
+        content="https://uploads-ssl.webflow.com/5ea1b995c6b4c10f74406a08/5ea1f11934a4540f7b574e9f_product-shot.png"
+        property="twitter:image"
+      />
+      <meta property="og:type" content="website" />
+      <meta content="summary_large_image" name="twitter:card" />
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
     </head>
     <style>
     body {
@@ -880,14 +913,10 @@
         }
     </style>
     <body>
-        <!-- {{ template "navbar" . }}
-            {{if .Alert}}
-                {{template "alert" .Alert}}
-            {{end}} -->
+        {{if .Alert}}
+            {{template "alert" .Alert}}
+        {{end}}
         {{ template "yield" .Yield }}
-    <!-- <div class="container">
-        {{ template "footer" }}
-    </div> -->
     </body>
 </html>
 {{ end }}
