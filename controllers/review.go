@@ -14,7 +14,7 @@ type Review struct {
 
 type ReviewForm struct {
 	Resume      string `schema:"resume"`
-	Description string `description:"description"`
+	Description string `schema:"description"`
 }
 
 func NewReview() *Review {
@@ -31,14 +31,19 @@ func (re *Review) New(w http.ResponseWriter, r *http.Request) {
 // Critique will analyze the Resume against the Job Description
 func (re *Review) Review(w http.ResponseWriter, r *http.Request) {
 	// now i have the form data container from parsing the data
-	var vd views.Data
-	var form ReviewForm
-	fmt.Println("function has been hit")
+	vd := views.Data{}
+	form := ReviewForm{}
 	if err := parseForm(r, &form); err != nil {
 		vd.SetAlert(err)
-		re.NewView.Render(w, r, vd)
-		return
+		re.ResultView.Render(w, r, vd)
 	}
-	http.Redirect(w, r, "/result", http.StatusFound)
 
+	re.Critique(form.Resume, form.Description)
+
+	// http.Redirect(w, r, "/result", http.StatusFound)
+
+}
+
+func (re *Review) Critique(d string, r string) {
+	fmt.Printf("R is %s, D is %s", r, d)
 }
