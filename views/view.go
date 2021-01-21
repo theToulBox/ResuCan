@@ -1,10 +1,15 @@
 package views
 
 import (
-	"fmt"
+	"bytes"
+	"errors"
 	"html/template"
+	"io"
+	"log"
 	"net/http"
 	"path/filepath"
+
+	"github.com/gorilla/csrf"
 )
 
 var (
@@ -52,10 +57,15 @@ func NewView(layout string, files ...string) *View {
 	addTemplatePath(files)
 	addTemplateExt(files)
 	files = append(files, layoutFiles()...)
-	t, err := template.ParseFiles(files...)
+	t, err := template.New("").Funcs(template.FuncMap{
+		"csrfField": func() (template.HTML, error) {
+			return "", errors.New("csrfField is not implemented")
+		},
+	}).ParseFiles(files...)
 	if err != nil {
 		panic(err)
 	}
+
 	return &View{
 		Template: t,
 		Layout:   layout,
@@ -65,17 +75,36 @@ func NewView(layout string, files ...string) *View {
 // Render accepts a ptr to a View and then executes
 // the template(s), filling in the data, to build
 // webpages
-func (v *View) Render(w http.ResponseWriter, data interface{}) error {
+//Render is used to render the view with the predefined layout.
+func (v *View) Render(w http.ResponseWriter, r *http.Request, data interface{}) {
 	w.Header().Set("Content-Type", "text/html")
-	return v.Template.ExecuteTemplate(w, v.Layout, data)
-
+	var vd Data
+	switch d := data.(type) {
+	case Data:
+		vd = d
+		//do nothing
+	default:
+		vd = Data{
+			Yield: data,
+		}
+	}
+	var buf bytes.Buffer
+	csrfField := csrf.TemplateField(r)
+	tpl := v.Template.Funcs(template.FuncMap{
+		"csrfField": func() template.HTML {
+			return csrfField
+		},
+	})
+	if err := tpl.ExecuteTemplate(&buf, v.Layout, vd); err != nil {
+		log.Println(err)
+		http.Error(w, "Something went wrong, if the problem persists, please email support@lenslocked.com", http.StatusInternalServerError)
+		return
+	}
+	io.Copy(w, &buf)
 }
 
 // ServeHTTP accepts a ptr to a view and renders
 // the view view writing it as http.ResponseWriter
 func (v *View) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	err := v.Render(w, nil)
-	if err != nil {
-		fmt.Printf("RenderError %v", err)
-	}
+	v.Render(w, r, nil)
 }
