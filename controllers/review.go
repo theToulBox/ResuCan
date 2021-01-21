@@ -35,15 +35,23 @@ func (re *Review) Review(w http.ResponseWriter, r *http.Request) {
 	form := ReviewForm{}
 	if err := parseForm(r, &form); err != nil {
 		vd.SetAlert(err)
-		re.ResultView.Render(w, r, vd)
+		re.NewView.Render(w, r, vd)
 	}
 
-	re.Critique(form.Resume, form.Description)
+	// Run the analysis
+	if err := re.Critique(form.Resume, form.Description); err != nil {
+		vd.SetAlert(err)
+		re.NewView.Render(w, r, vd)
+	}
 
-	// http.Redirect(w, r, "/result", http.StatusFound)
+	// collect the res
+	vd.Yield = form
 
+	// render the view
+	re.ResultView.Render(w, r, vd)
 }
 
-func (re *Review) Critique(d string, r string) {
+func (re *Review) Critique(d string, r string) error {
 	fmt.Printf("R is %s, D is %s", r, d)
+	return nil
 }
