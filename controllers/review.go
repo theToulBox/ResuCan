@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 	"sort"
 	"strings"
@@ -78,27 +77,22 @@ func (re *Review) Analyze(r, d string) (*Result, error) {
 	desc := strings.ToLower(d)
 	linkedIn := HasLinkedIn(resu)
 	rLength := ResumeLength(resu)
+
 	// Collect keywords from Job description
 	JobDescrHardSkills := FindSkills(desc, Hard)
-	fmt.Println("JobDescrHardSkills ", JobDescrHardSkills)
-
 	JobDescrSoftSkills := FindSkills(desc, Soft)
-	fmt.Println("JobDescrSoftSkills", JobDescrSoftSkills)
 
 	// Collect keywords from resume
 	ResumeHardSkills := FindSkills(resu, Hard)
-	fmt.Println("ResumeHardSkills", ResumeHardSkills)
-
 	ResumeSoftSkills := FindSkills(resu, Soft)
-	fmt.Println("ResumeSoftSkills", ResumeSoftSkills)
+
 	// If Resume does not have hard skills that were found in the job description
 	// then add the Result as recommendation
 	hSkills := Diff(JobDescrHardSkills, ResumeHardSkills)
-	fmt.Println("Resume could use these hard skills", hSkills)
+
 	// If Resume does not have soft skills that were found in the job description
 	// then add the result as recommendation
 	sSkills := Diff(JobDescrSoftSkills, ResumeSoftSkills)
-	fmt.Println("Resume Could use these soft skills", sSkills)
 
 	// mSkillCount := measurableSkillCount(t)
 
