@@ -1,16 +1,44 @@
 package controllers
 
 import (
-	"fmt"
+	"strings"
 	"testing"
 )
 
 func TestFindSkills(t *testing.T) {
-	desc := "software development"
-	have := FindSkills(desc, Hard)
-	want := []string{"software development"}
-	fmt.Println("have", have)
-	if have != want[0] {
-		fmt.Printf("have %v want %v", have, want)
+	cases := []struct {
+		desc string
+		txt  string
+		set  []string
+		want []string
+	}{
+		{"TestFindsHardSkill", "automation is fun", Hard, []string{"automation"}},
+		{"TestFindSoftSkill", "clarity is what we need", Soft, []string{"clarity"}},
+		{"TestFindSkillsEmptyString", "", Soft, []string{""}},
+		{"TestFindSkillsWonkyCase", "ClArItY is what we need", Soft, []string{"clarity"}},
+	}
+	for _, tc := range cases {
+		tc.txt = strings.ToLower(tc.txt)
+		got := FindSkills(tc.txt, tc.set)
+		if strings.ToLower(got[0]) != tc.want[0] {
+			t.Errorf("%s: got %v want %v", tc.desc, tc.txt, tc.want)
+		}
+	}
+}
+
+func TestHasLinkedIn(t *testing.T) {
+	cases := []struct {
+		desc string
+		txt  string
+		want bool
+	}{
+		{"TestHasLinkedIn", "a resume should have a linkedin", true},
+		{"TestNoLinkedIn", "some resume", false},
+	}
+	for _, tc := range cases {
+		got := HasLinkedIn(tc.txt)
+		if got != tc.want {
+			t.Errorf("%s: got %v want %v", tc.desc, tc.txt, tc.want)
+		}
 	}
 }

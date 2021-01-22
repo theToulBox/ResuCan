@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/application.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/bootstrap.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/bootstrap.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/static/home.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/static/home.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/view.go" beforeDir="false" afterPath="$PROJECT_DIR$/views/view.go" afterDir="false" />
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Renamed.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/review.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/review_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +13,11 @@
   </component>
   <component name="GOROOT" url="file:///usr/local/Cellar/go/1.15.6/libexec" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GoLibraries">
@@ -33,9 +37,15 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Test.TestHasLinkedIn in github.com/theToulBox/ResuCan/controllers">
     <configuration name="go build github.com/llcranmer/9-2-5-Resume-Scan" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="9-2-5-Resume-Scan" />
       <working_directory value="$PROJECT_DIR$" />
@@ -45,8 +55,43 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestFindSkills in github.com/theToulBox/ResuCan/controllers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="9-2-5-Resume-Scan" />
+      <working_directory value="$PROJECT_DIR$/controllers" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/theToulBox/ResuCan/controllers" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestFindSkills\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestHasLinkedIn in github.com/theToulBox/ResuCan/controllers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="9-2-5-Resume-Scan" />
+      <working_directory value="$PROJECT_DIR$/controllers" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/theToulBox/ResuCan/controllers" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestHasLinkedIn\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test github.com/theToulBox/ResuCan/controllers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="9-2-5-Resume-Scan" />
+      <working_directory value="$PROJECT_DIR$/controllers" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/theToulBox/ResuCan/controllers" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestHasLinkedIn in github.com/theToulBox/ResuCan/controllers" />
+        <item itemvalue="Go Test.TestFindSkills in github.com/theToulBox/ResuCan/controllers" />
+        <item itemvalue="Go Test.go test github.com/theToulBox/ResuCan/controllers" />
         <item itemvalue="Go Build.go build github.com/llcranmer/9-2-5-Resume-Scan" />
       </list>
     </recent_temporary>
@@ -54,6 +99,22 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Renamed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

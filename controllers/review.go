@@ -54,7 +54,7 @@ func (re *Review) Review(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Run the analysis
-	res, err := re.analyze(form.Resume, form.Description)
+	res, err := re.Analyze(form.Resume, form.Description)
 	if err != nil {
 		vd.SetAlert(err)
 		re.NewView.Render(w, r, vd)
@@ -70,7 +70,7 @@ func (re *Review) Review(w http.ResponseWriter, r *http.Request) {
 
 // In analyze build a result struct that will be used to
 // populate the result.gohtml
-func (re *Review) analyze(r, d string) (*Result, error) {
+func (re *Review) Analyze(r, d string) (*Result, error) {
 	resu := strings.ToLower(r)
 	desc := strings.ToLower(d)
 	linkedIn := HasLinkedIn(resu)
@@ -108,14 +108,18 @@ func (re *Review) analyze(r, d string) (*Result, error) {
 	return res, nil
 }
 
-func FindSkills(t string, set []string) []string {
-	skills := []string{}
+func FindSkills(t string, set []string) (skills []string) {
 	for _, s := range set {
-		if strings.Contains(t, strings.ToLower(s)) {
+		s = strings.ToLower(s)
+		if strings.Contains(t, s) {
 			skills = append(skills, s)
 		}
 	}
-	return skills
+	// handle the case when there aren't any matches
+	if skills == nil {
+		skills = append(skills, "")
+	}
+	return
 }
 
 func HasLinkedIn(t string) bool {
