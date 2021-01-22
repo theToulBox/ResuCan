@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Renamed.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added a few tests.">
       <change beforePath="$PROJECT_DIR$/controllers/review.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/review_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +43,19 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Go Test.TestHasLinkedIn in github.com/theToulBox/ResuCan/controllers">
+  <component name="RunManager" selected="Go Test.gobench github.com/theToulBox/ResuCan/controllers">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="ResuCan" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$" />
+      <package value="github.com/theToulBox/ResuCan" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build github.com/llcranmer/9-2-5-Resume-Scan" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="9-2-5-Resume-Scan" />
+      <module name="ResuCan" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/application.go" />
@@ -56,7 +64,7 @@
       <method v="2" />
     </configuration>
     <configuration name="TestFindSkills in github.com/theToulBox/ResuCan/controllers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="9-2-5-Resume-Scan" />
+      <module name="ResuCan" />
       <working_directory value="$PROJECT_DIR$/controllers" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
@@ -67,7 +75,7 @@
       <method v="2" />
     </configuration>
     <configuration name="TestHasLinkedIn in github.com/theToulBox/ResuCan/controllers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="9-2-5-Resume-Scan" />
+      <module name="ResuCan" />
       <working_directory value="$PROJECT_DIR$/controllers" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
@@ -77,8 +85,19 @@
       <pattern value="^\QTestHasLinkedIn\E$" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="ResuCan" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/theToulBox/ResuCan" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go test github.com/theToulBox/ResuCan/controllers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="9-2-5-Resume-Scan" />
+      <module name="ResuCan" />
       <working_directory value="$PROJECT_DIR$/controllers" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
@@ -87,11 +106,22 @@
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="gobench github.com/theToulBox/ResuCan/controllers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="ResuCan" />
+      <working_directory value="$PROJECT_DIR$/controllers" />
+      <framework value="gobench" />
+      <kind value="PACKAGE" />
+      <package value="github.com/theToulBox/ResuCan/controllers" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.gobench github.com/theToulBox/ResuCan/controllers" />
+        <item itemvalue="Go Test.go test github.com/theToulBox/ResuCan/controllers" />
         <item itemvalue="Go Test.TestHasLinkedIn in github.com/theToulBox/ResuCan/controllers" />
         <item itemvalue="Go Test.TestFindSkills in github.com/theToulBox/ResuCan/controllers" />
-        <item itemvalue="Go Test.go test github.com/theToulBox/ResuCan/controllers" />
         <item itemvalue="Go Build.go build github.com/llcranmer/9-2-5-Resume-Scan" />
       </list>
     </recent_temporary>
@@ -114,7 +144,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Renamed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed." />
+    <MESSAGE value="Added a few tests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a few tests." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
