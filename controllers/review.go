@@ -129,6 +129,7 @@ func HasLinkedIn(t string) bool {
 	return strings.Contains(t, "linkedin")
 }
 
+// Diff Calculates the difference of two string slices
 func Diff(a, b []string) []string {
 	a = SortIfNeeded(a)
 	b = SortIfNeeded(b)
@@ -150,6 +151,9 @@ func Diff(a, b []string) []string {
 	d = append(d, a[i:]...)
 	d = append(d, b[j:]...)
 	d = RemoveDups(d)
+	if d == nil {
+		d = append(d, "")
+	}
 	return d
 }
 
