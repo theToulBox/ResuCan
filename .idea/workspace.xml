@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Renamed the project.">
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Trivial commit.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/review_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/review.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +155,8 @@
     <MESSAGE value="Renamed." />
     <MESSAGE value="Added a few tests." />
     <MESSAGE value="Renamed the project." />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed the project." />
+    <MESSAGE value="Trivial commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Trivial commit." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
