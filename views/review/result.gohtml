@@ -1,5 +1,11 @@
 {{ define "yield" }}
 	<h2>Result</h2>
-	{{ .Resume }}
-	{{ .Description }}
+	<h3> Resume Length </h3>
+	{{ .ResumeLength }}
+	<h3>Has LinkedIn </h3>
+	{{ .LinkedIn }}
+	<h3>We Recommend adding a few of these Hard Skills</h3>
+	{{ .HardSkills}}
+	<h3>We Recommend adding a few of these Soft Skills</h3>
+	{{ .SoftSkills}}
 {{ end }}
