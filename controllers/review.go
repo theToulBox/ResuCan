@@ -126,10 +126,7 @@ func FindSkills(t string, set []string) (skills []string) {
 }
 
 func HasLinkedIn(t string) bool {
-	if strings.Contains(t, "linkedin") {
-		return true
-	}
-	return false
+	return strings.Contains(t, "linkedin")
 }
 
 func Diff(a, b []string) []string {
