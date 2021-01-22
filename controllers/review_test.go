@@ -33,7 +33,7 @@ func TestHasLinkedIn(t *testing.T) {
 		want bool
 	}{
 		{"TestHasLinkedIn", "a resume should have a linkedin", true},
-		{"TestNoLinkedIn", "some resume", false},
+		{"TestNoLinkedIn", "some one's resume", false},
 	}
 	for _, tc := range cases {
 		got := HasLinkedIn(tc.txt)

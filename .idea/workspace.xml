@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added a few tests.">
-      <change beforePath="$PROJECT_DIR$/controllers/review.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review.go" afterDir="false" />
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Renamed the project.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/review_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +18,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
@@ -145,7 +154,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Renamed." />
     <MESSAGE value="Added a few tests." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a few tests." />
+    <MESSAGE value="Renamed the project." />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed the project." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
