@@ -1,6 +1,6 @@
 package controllers
 
-import "github.com/llcranmer/9-2-5-Resume-Scan/views"
+import "github.com/theToulBox/ResuCan/views"
 
 // Static contains the webpages
 // that are not rendering dynamic content

@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/llcranmer/9-2-5-Resume-Scan/views"
+	"github.com/theToulBox/ResuCan/views"
 )
 
 var (

@@ -1,4 +1,4 @@
-module github.com/llcranmer/9-2-5-Resume-Scan
+module github.com/theToulBox/ResuCan
 
 go 1.15
 

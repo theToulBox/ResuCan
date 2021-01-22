@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/llcranmer/9-2-5-Resume-Scan/controllers"
+	"github.com/theToulBox/ResuCan/controllers"
 )
 
 func main() {

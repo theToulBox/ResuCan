@@ -1,4 +1,4 @@
-name: 9-2-5-Resume-Scan
+name: ResuCan
 on:
   push:
     tags:
