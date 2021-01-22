@@ -100,7 +100,7 @@ func (v *View) Render(w http.ResponseWriter, r *http.Request, data interface{}) 
 		http.Error(w, "Something went wrong, if the problem persists, please email support@lenslocked.com", http.StatusInternalServerError)
 		return
 	}
-	io.Copy(w, &buf)
+	_, _ = io.Copy(w, &buf)
 }
 
 // ServeHTTP accepts a ptr to a view and renders
