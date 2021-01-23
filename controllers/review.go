@@ -108,17 +108,29 @@ func (re *Review) Analyze(r, d string) (*Result, error) {
 func FindSkills(t string, set []string) (skills []string) {
 	for _, s := range set {
 		s = strings.ToLower(s)
+		t = strings.ToLower(t)
 		if strings.Contains(t, s) {
 			skills = append(skills, s)
 		}
 	}
-	// handle the case when there aren't any matches
-	if skills == nil {
-		skills = append(skills, "")
-	}
-	return
+	return RemoveDups(skills)
 }
 
+func intersection(s1, s2 []string) (inter []string) {
+	hash := make(map[string]bool)
+	for _, e := range s1 {
+		hash[e] = true
+	}
+	for _, e := range s2 {
+		// If elements present in the hashmap then append intersection list.
+		if hash[e] {
+			inter = append(inter, e)
+		}
+	}
+	//Remove dups from slice.
+	inter = RemoveDups(inter)
+	return
+}
 func HasLinkedIn(t string) bool {
 	return strings.Contains(t, "linkedin")
 }
@@ -145,10 +157,16 @@ func Diff(a, b []string) []string {
 	d = append(d, a[i:]...)
 	d = append(d, b[j:]...)
 	d = RemoveDups(d)
-	if d == nil {
-		d = append(d, "")
-	}
 	return d
+}
+
+func rm_empty(s []string) (r []string) {
+	for _, str := range s {
+		if str != "" {
+			r = append(r, str)
+		}
+	}
+	return
 }
 
 func SortIfNeeded(a []string) []string {

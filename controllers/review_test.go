@@ -2,8 +2,6 @@ package controllers
 
 import (
 	"github.com/google/go-cmp/cmp"
-	"github.com/google/go-cmp/cmp/cmpopts"
-	"strings"
 	"testing"
 )
 
@@ -15,21 +13,32 @@ func TestAnalyze(t *testing.T) {
 		result  *Result
 	}{
 		{
-			desc:    "TestAnalyze",
-			resu:    "some one's resume being tested",
-			jobPost: "some generic post about automation clarity",
+			desc:    "TestAnalyzeBothSkillsMissing",
+			resu:    "resume is more complex",
+			jobPost: "automation clarity",
 			result: &Result{
 				LinkedIn:     false,
-				HardSkills:   []string{" automation"},
-				SoftSkills:   []string{" clarity"},
-				ResumeLength: 5,
+				HardSkills:   []string{"automation"},
+				SoftSkills:   []string{"clarity"},
+				ResumeLength: 4,
+			},
+		},
+		{
+			desc:    "TestAnalyzeNoMatchInJobDescr",
+			resu:    "resume is more complex",
+			jobPost: "a poorly written job description",
+			result: &Result{
+				LinkedIn:     false,
+				HardSkills:   nil,
+				SoftSkills:   nil,
+				ResumeLength: 4,
 			},
 		},
 	}
 	for _, tc := range cases {
 		n := Review{}
 		got, _ := n.Analyze(tc.resu, tc.jobPost)
-		if !cmp.Equal(got, tc.result, cmpopts.IgnoreFields(Result{}, "HardSkills", "SoftSkills")) {
+		if !cmp.Equal(got, tc.result) {
 			t.Errorf("%s: got %v want %v", tc.desc, got, tc.result)
 		}
 	}
@@ -38,20 +47,19 @@ func TestAnalyze(t *testing.T) {
 func TestFindSkills(t *testing.T) {
 	cases := []struct {
 		desc string
-		txt  string
+		resu string
 		set  []string
 		want []string
 	}{
-		{"TestFindsHardSkill", "automation is fun", Hard, []string{"automation"}},
-		{"TestFindSoftSkill", "clarity is what we need", Soft, []string{"clarity"}},
-		{"TestFindSkillsEmptyString", "", Soft, []string{""}},
+		{"TestFindsHardSkillInResume", "automation is fun", Hard, []string{"automation"}},
+		{"TestFindSoftSkillInResume", "clarity is what we need", Soft, []string{"clarity"}},
+		{"TestFindSkillsEmptyString", "", Soft, nil},
 		{"TestFindSkillsWonkyCase", "ClArItY is what we need", Soft, []string{"clarity"}},
 	}
 	for _, tc := range cases {
-		tc.txt = strings.ToLower(tc.txt)
-		got := FindSkills(tc.txt, tc.set)
-		if strings.ToLower(got[0]) != tc.want[0] {
-			t.Errorf("%s: got %v want %v", tc.desc, tc.txt, tc.want)
+		got := FindSkills(tc.resu, tc.set)
+		if !cmp.Equal(got, tc.want) {
+			t.Errorf("%s: got %v want %v", tc.desc, got, tc.want)
 		}
 	}
 }
@@ -77,16 +85,17 @@ func TestDiff(t *testing.T) {
 	cases := []struct {
 		desc   string
 		skills []string
+		post   []string
 		want   []string
 	}{
-		{"TestDiffHasOne", []string{"eating"}, []string{"Automation C++ java"}},
-		{"TestDiffNone", []string{"automation"}, []string{"Automation"}},
-		{"TestDiffEmptyString", []string{"a resume"}, []string{""}},
+		{"TestDiffHasOne", []string{"eating"}, []string{"C++"}, []string{"C++", "eating"}},
+		{"TestDiffNone", []string{"automation"}, []string{"automation"}, nil},
+		{"TestDiffEmptyString", []string{""}, []string{"Resume"}, []string{"", "Resume"}},
 	}
 	for _, tc := range cases {
-		got := Diff(tc.skills, tc.want)
-		if got[0] != tc.want[0] {
-			t.Errorf("%s: got %v want %v", tc.desc, tc.skills, tc.want)
+		got := Diff(tc.skills, tc.post)
+		if !cmp.Equal(got, tc.want) {
+			t.Errorf("%s: got %v want %v", tc.desc, got, tc.want)
 		}
 	}
 }
@@ -101,7 +110,7 @@ func TestRemoveDups(t *testing.T) {
 	}
 	for _, tc := range cases {
 		got := RemoveDups(tc.words)
-		if got[0] != tc.want[0] {
+		if !cmp.Equal(got, tc.want) {
 			t.Errorf("%s: got %v want %v", tc.desc, got[:], tc.want[0])
 		}
 	}

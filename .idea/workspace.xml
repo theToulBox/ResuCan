@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="added another test">
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added Analyze test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/review.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/review_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +54,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Go Test.TestAnalyze in github.com/theToulBox/ResuCan/controllers">
+  <component name="RunManager" selected="Go Test.go test github.com/theToulBox/ResuCan/controllers">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="ResuCan" />
       <working_directory value="$PROJECT_DIR$" />
@@ -133,11 +131,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestAnalyze in github.com/theToulBox/ResuCan/controllers" />
         <item itemvalue="Go Test.go test github.com/theToulBox/ResuCan/controllers" />
-        <item itemvalue="Go Test.TestRemoveDups in github.com/theToulBox/ResuCan/controllers" />
         <item itemvalue="Go Test.TestDiff in github.com/theToulBox/ResuCan/controllers" />
         <item itemvalue="Go Test.gobench github.com/theToulBox/ResuCan/controllers" />
+        <item itemvalue="Go Test.TestAnalyze in github.com/theToulBox/ResuCan/controllers" />
+        <item itemvalue="Go Test.TestRemoveDups in github.com/theToulBox/ResuCan/controllers" />
       </list>
     </recent_temporary>
   </component>
@@ -166,9 +164,13 @@
     <MESSAGE value="Incorporated golangci + security check comments." />
     <MESSAGE value="Removed S010 complaint from golang-ci" />
     <MESSAGE value="added another test" />
-    <option name="LAST_COMMIT_MESSAGE" value="added another test" />
+    <MESSAGE value="Added Analyze test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Analyze test" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ResuCan$go_test_github_com_theToulBox_ResuCan_controllers.out" NAME="go test github.com/theToulBox/ResuCan/controllers Coverage Results" MODIFIED="1611416042828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
