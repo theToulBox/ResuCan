@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Removed unused code.">
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Completed rough draft. Next to style the results page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/review.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/review_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/review/new.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/review/new.gohtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/review/result.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/review/result.gohtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTML" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
@@ -55,13 +55,22 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Go Test.go test github.com/theToulBox/ResuCan/controllers">
+  <component name="RunManager" selected="Go Build.go build github.com/theToulBox/ResuCan">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="ResuCan" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$" />
+      <package value="github.com/theToulBox/ResuCan" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/theToulBox/ResuCan" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="ResuCan" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/application.go" />
       <package value="github.com/theToulBox/ResuCan" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
@@ -86,17 +95,6 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <pattern value="^\QTestDiff\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestRemoveDups in github.com/theToulBox/ResuCan/controllers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="ResuCan" />
-      <working_directory value="$PROJECT_DIR$/controllers" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="github.com/theToulBox/ResuCan/controllers" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestRemoveDups\E$" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
@@ -132,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/theToulBox/ResuCan" />
         <item itemvalue="Go Test.go test github.com/theToulBox/ResuCan/controllers" />
         <item itemvalue="Go Test.TestDiff in github.com/theToulBox/ResuCan/controllers" />
         <item itemvalue="Go Test.gobench github.com/theToulBox/ResuCan/controllers" />
         <item itemvalue="Go Test.TestAnalyze in github.com/theToulBox/ResuCan/controllers" />
-        <item itemvalue="Go Test.TestRemoveDups in github.com/theToulBox/ResuCan/controllers" />
       </list>
     </recent_temporary>
   </component>
@@ -169,7 +167,8 @@
     <MESSAGE value="Refactored Tests." />
     <MESSAGE value="Added status badge." />
     <MESSAGE value="Removed unused code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused code." />
+    <MESSAGE value="Completed rough draft. Next to style the results page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed rough draft. Next to style the results page." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
