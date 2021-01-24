@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Converted to raw string per static check suggestion.">
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Removed unnecessary '\'">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/review.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,7 +170,8 @@
     <MESSAGE value="Completed rough draft. Next to style the results page." />
     <MESSAGE value="styled new scan page and started on the results page." />
     <MESSAGE value="Converted to raw string per static check suggestion." />
-    <option name="LAST_COMMIT_MESSAGE" value="Converted to raw string per static check suggestion." />
+    <MESSAGE value="Removed unnecessary '\'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unnecessary '\'" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

@@ -86,13 +86,13 @@ func TestHasLinkedIn(t *testing.T) {
 func TestDiff(t *testing.T) {
 	cases := []struct {
 		desc   string
-		skills []string
 		post   []string
+		skills []string
 		want   []string
 	}{
-		{"TestDiffHasOne", []string{"eating"}, []string{"C++"}, []string{"C++", "eating"}},
+		{"TestDiffHasOne", []string{"eating"}, []string{"C++"}, []string{"C++"}},
 		{"TestDiffNone", []string{"automation"}, []string{"automation"}, nil},
-		{"TestDiffEmptyString", []string{""}, []string{"Resume"}, []string{"", "Resume"}},
+		{"TestDiffEmptyString", []string{""}, []string{"Resume"}, []string{"Resume"}},
 	}
 	for _, tc := range cases {
 		got := Diff(tc.skills, tc.post)

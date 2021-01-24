@@ -123,29 +123,23 @@ func HasLinkedIn(t string) bool {
 	return strings.Contains(t, "linkedin")
 }
 
-// Diff Calculates the difference of two string slices
+// difference returns the elements in `a` that aren't in `b`.
 func Diff(a, b []string) []string {
 	a = SortIfNeeded(a)
+	a = RemoveDups(a)
 	b = SortIfNeeded(b)
-	var d []string
-	i, j := 0, 0
-	for i < len(a) && j < len(b) {
-		c := strings.Compare(a[i], b[j])
-		if c == 0 {
-			i++
-			j++
-		} else if c < 0 {
-			d = append(d, a[i])
-			i++
-		} else {
-			d = append(d, b[j])
-			j++
+	b = RemoveDups(b)
+	mb := make(map[string]struct{}, len(b))
+	for _, x := range b {
+		mb[x] = struct{}{}
+	}
+	var diff []string
+	for _, x := range a {
+		if _, found := mb[x]; !found {
+			diff = append(diff, x)
 		}
 	}
-	d = append(d, a[i:]...)
-	d = append(d, b[j:]...)
-	d = RemoveDups(d)
-	return d
+	return diff
 }
 
 func SortIfNeeded(a []string) []string {
