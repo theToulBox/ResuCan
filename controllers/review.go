@@ -174,7 +174,7 @@ func ResumeLength(res string) int {
 }
 
 func MeasurableSkillCount(t string) int {
-	re := regexp.MustCompile("[\\$ ]+?(\\d+([,\\.\\d]+)?)")
+	re := regexp.MustCompile(`[\\$ ]+?(\\d+([,\\.\\d]+)?)`)
 	nums := re.FindAllString(t, -1)
 	return len(nums)
 }
