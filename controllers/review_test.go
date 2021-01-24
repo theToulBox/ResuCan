@@ -14,13 +14,14 @@ func TestAnalyze(t *testing.T) {
 	}{
 		{
 			desc:    "TestAnalyzeBothSkillsMissing",
-			resu:    "resume is more complex",
+			resu:    "A 20USD resume is more complex than a $1.00 but not as much as a 20% fee",
 			jobPost: "automation clarity",
 			result: &Result{
 				LinkedIn:     false,
 				HardSkills:   []string{"automation"},
 				SoftSkills:   []string{"clarity"},
-				ResumeLength: 4,
+				ResumeLength: 17,
+				Measurable:   3,
 			},
 		},
 		{
@@ -32,6 +33,7 @@ func TestAnalyze(t *testing.T) {
 				HardSkills:   nil,
 				SoftSkills:   nil,
 				ResumeLength: 4,
+				Measurable:   0,
 			},
 		},
 	}
@@ -111,7 +113,23 @@ func TestRemoveDups(t *testing.T) {
 	for _, tc := range cases {
 		got := RemoveDups(tc.words)
 		if !cmp.Equal(got, tc.want) {
-			t.Errorf("%s: got %v want %v", tc.desc, got[:], tc.want[0])
+			t.Errorf("%s: got %v want %v", tc.desc, got, tc.want)
+		}
+	}
+}
+
+func TestMeasurableSkillCount(t *testing.T) {
+	cases := []struct {
+		desc string
+		resu string
+		want int
+	}{
+		{"TestFindNums", "Increased Fight Club recruits by 20% $40 $70.12 ", 3},
+	}
+	for _, tc := range cases {
+		got := MeasurableSkillCount(tc.resu)
+		if !cmp.Equal(got, tc.want) {
+			t.Errorf("%s: got %v want %v", tc.desc, got, tc.want)
 		}
 	}
 }

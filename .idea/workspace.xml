@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added status badge.">
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Removed unused code.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/review.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/review_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/review/result.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/review/result.gohtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +168,8 @@
     <MESSAGE value="Added Analyze test" />
     <MESSAGE value="Refactored Tests." />
     <MESSAGE value="Added status badge." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added status badge." />
+    <MESSAGE value="Removed unused code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unused code." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"net/http"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -31,6 +32,7 @@ type Result struct {
 	HardSkills   []string
 	SoftSkills   []string
 	ResumeLength int
+	Measurable   int
 }
 
 // NewReview Renders the views.
@@ -94,13 +96,14 @@ func (re *Review) Analyze(r, d string) (*Result, error) {
 	// then add the result as recommendation
 	sSkills := Diff(JobDescrSoftSkills, ResumeSoftSkills)
 
-	// mSkillCount := measurableSkillCount(t)
+	mSkillCount := MeasurableSkillCount(resu)
 
 	res := &Result{
 		LinkedIn:     linkedIn,
 		HardSkills:   hSkills,
 		SoftSkills:   sSkills,
 		ResumeLength: rLength,
+		Measurable:   mSkillCount,
 	}
 	return res, nil
 }
@@ -165,12 +168,13 @@ func RemoveDups(elements []string) (nodups []string) {
 	return
 }
 
+// Resumes should be between 400 and 1000 words
 func ResumeLength(res string) int {
 	return len(strings.Split(res, " "))
 }
 
-// func MeasurableSkillCount(t string) [][]byte {
-// 	re := regexp.MustCompile(`[0-9]%`)
-// 	percentages := re.FindAll([]byte(t), -1)
-// 	return percentages
-// }
+func MeasurableSkillCount(t string) int {
+	re := regexp.MustCompile("[\\$ ]+?(\\d+([,\\.\\d]+)?)")
+	nums := re.FindAllString(t, -1)
+	return len(nums)
+}
