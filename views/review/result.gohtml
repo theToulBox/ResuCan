@@ -3,7 +3,11 @@
 		<div class="container">
 			<div class="row items-center mb-lg">
 				<div class="column align-left">
-					<a href="/" aria-current="page" class="w-inline-block w--current">
+					<a
+							href="/"
+							aria-current="page"
+							class="w-inline-block w--current"
+					>
 						<div class="logo">ResuCan</div>
 					</a>
 				</div>
@@ -22,49 +26,189 @@
 					<h1 class="test-giga text-center">
 						Result
 					</h1>
-					<div class="row items-center mt-lg _w-full max-w-lg wrap justify-center">
-					</div>
 				</div>
 			</div>
 		</div>
 		<div class="circle"></div>
 	</div>
-	<h3> Resume Length </h3>
-	{{ if and (gt .ResumeLength 400) (lt .ResumeLength 1000) }}
-		<p>✅ Your resume has {{ .ResumeLength }} words, which is perfect because the ideal length is between 400 and 1000 words</p>
-	{{ else if(lt .ResumeLength 400) }}
-		<p>❌ Missing words, it is recommended to have at least 400 words in your resume and yours is {{ .ResumeLength }} </p>
-	{{ else if(gt .ResumeLength 1000) }}
-		<p>❌ You have too many words. It is recommended to keep your resume below 1000 words and yours is {{ .ResumeLength }} </p>
-	{{ end }}
-	<h3>Has LinkedIn </h3>
-	{{ if (.LinkedIn) }}
-		<p>✅ Awesome, you have your LinkedIn URL. According to major recruiting firms, 93% of recruiters will search for your online profiles before deciding if they
-			should interview you. You did a great job with including your online presence within you resume.
-		</p>
-	{{ else }}
-		<p>❌ Missing a  LinkedIn URL. It is important to have one because according to major recruiting firms, 93% of recruiters will search for your online profiles before deciding if they
-			should interview you.
-		</p>
-	{{ end }}
-	<h3>We Recommend adding a few of these Hard Skills</h3>
-	<ul>
-		{{ range .HardSkills }}
-			<li>{{ . }}</li>
-		{{ end }}
-	</ul>
-
-	<h3>We Recommend adding a few of these Soft Skills</h3>
-	<ul>
-		{{ range .SoftSkills }}
-			<li>{{ . }}</li>
-		{{ end }}
-	</ul>
-
-	<h3>Measurable Skills </h3>
-		{{ if (lt .Measurable 5) }}
-			<p>❌ Missing Measurable skill count. You have  {{ .Measurable }} measurable result(s), it is recommended to include a total of 5 measurable results in your resume.</p>
-		{{ else if (gt .Measurable 5) }}
-			<p>✅ Impressive, you have {{ .Measurable }}, which is above above the suggested minimum of 5!</p>
-		{{ end }}
+	<div class="section">
+		<div class="container">
+			<div class="row items-center v-t">
+				<div class="column align-left p-2xl">
+					<table>
+						<tr>
+							<td>LinkedIn</td>
+							<td>
+								{{ if (.LinkedIn) }}
+									<p>✅ Awesome, you have your LinkedIn URL.
+									</p>
+								{{ else }}
+									<p>❌ Missing a  LinkedIn URL</p>
+								{{ end }}
+							</td>
+						</tr>
+						<tr>
+							<td>Measurable Skill Count</td>
+							<td>
+								{{ if (lt .Measurable 5) }}
+									<p>❌ Missing Measurable skill count. You have  {{ .Measurable }} measurable result(s), it is recommended to include a total of 5 measurable results in your resume.</p>
+								{{ else if (gt .Measurable 5) }}
+									<p>✅ Impressive, you have {{ .Measurable }}, which is above above the suggested minimum of 5!</p>
+								{{ end }}
+							</td>
+						</tr>
+						<tr>
+							<td>Education Requirement</td>
+							<td>
+								{{ if (.Education) }}
+									<ul>
+										{{ range .Education}}
+											<li>{{ . }}</li>
+										{{ end }}
+									</ul>
+								{{ else }}
+									<p>✅  There doesn't seem to be any education requirements</p>
+								{{ end }}
+							</td>
+						</tr>
+						<tr>
+							<td>Covid 19</td>
+							<td>
+								{{ if (.Covid19) }}
+									<p>✅ This job has Covid-19 Precautions </p>
+								{{ else }}
+									<p>❌  This job doesn't have Covid-19 Precautions</p>
+								{{ end }}
+							</td>
+						</tr>
+						<tr>
+							<td>Resume Length</td>
+							<td>
+								{{ if and (gt .ResumeLength 400) (lt .ResumeLength 1000) }}
+									<p>✅ Your resume has {{ .ResumeLength }} words, which is perfect because the ideal length is between 400 and 1000 words</p>
+								{{ else if(lt .ResumeLength 400) }}
+									<p>❌ Missing words, it is recommended to have at least 400 words in your resume and yours is {{ .ResumeLength }} </p>
+								{{ else if(gt .ResumeLength 1000) }}
+									<p>❌ You have too many words. It is recommended to keep your resume below 1000 words and yours is {{ .ResumeLength }} </p>
+								{{ end }}
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="column align-center p-2xl">
+					<img
+							src="../../public/images/flamenco-290.png"
+							alt=""
+							class="feature-card"
+					/>
+				</div>
+			</div>
+			<div class="row reverse items-center v-t">
+				<div class="column align-left p-2xl">
+					<h2 class="max-w-lg">Hard Skills</h2>
+					<ul>
+						{{ range .HardSkills }}
+							<li>{{ . }}</li>
+						{{ end }}
+					</ul>
+				</div>
+				<div class="column align-center p-2xl">
+					<img
+							src="../../public/images/flamenco-searching-1.png"
+							alt=""
+							class="feature-card"
+					/>
+				</div>
+			</div>
+			<div class="row items-center v-t">
+				<div class="column align-left p-2xl">
+					<h2 class="max-w-lg">
+						Soft Skills
+					</h2>
+					<ul>
+						{{ range .SoftSkills }}
+							<li>{{ . }}</li>
+						{{ end }}
+					</ul>
+				</div>
+				<div class="column align-center p-2xl">
+					<img
+							src="../../public/images/flamenco-358.png"
+							alt=""
+							class="feature-card"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section main mt-2xl">
+		<div class="container mt-2xl mb-2xl">
+			<div class="row items-center">
+				<div class="column align-center">
+					<h1 class="max-w-lg text-giga text-center text-white">
+						Start getting the professional feedback you need.
+					</h1>
+					<a href="/review" class="button xl main white mt-lg w-button">Start</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section pb-2xl-m">
+		<div class="container mt-2xl mb-2xl">
+			<div class="row v-l">
+				<div class="column align-left">
+					<a href="#" class="u mt-lg">info@email.com</a>
+					<div class="row mt-lg ml-md-n">
+					</div>
+				</div>
+				<div class="column align-left">
+					<h6 class="max-w-lg mb-xl footer-header">Resources</h6>
+					<div class="mt-md">
+						Illustrations by <a href="https://dribbble.com/muratkalkavan">Murat Kalkavan</a> from <a href="https://icons8.com/">Icons8</a>
+					</div>
+				</div>
+				<div class="column align-left">
+					<h6 class="max-w-lg mb-xl footer-header">Learn more</h6>
+					<div>
+						Check Julian Shapiro’s
+						<a
+								href="https://www.julian.com/guide/growth/landing-pages"
+								target="_blank"
+						>guide</a
+						>
+					</div>
+					<div class="mt-md">
+						Check out Harry’s
+						<a
+								href="https://marketingexamples.com/copywriting/tips"
+								target="_blank"
+						>tips</a
+						>
+					</div>
+				</div>
+				<div class="column align-left">
+					<h6 class="max-w-lg mb-xl footer-header">Use Lander for free</h6>
+					<div><a href="#">Clone on Webflow</a></div>
+					<div class="mt-md">
+						<a href="#" target="_blank">Download a copy as a .zip</a>
+					</div>
+				</div>
+			</div>
+			<div class="border-t mt-xl">
+				<div class="row mt-xl v-l">
+					<div class="column align-left">
+						<div class="muted text-sm">
+							© ResuScan, 2021
+						</div>
+					</div>
+					<div class="column align-right">
+						<div class="row">
+							<div><a href="/privacy-policy">Privacy Policy</a></div>
+							<div><a href="/terms-and-conditions" class="ml-lg">Terms and Conditions</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {{ end }}

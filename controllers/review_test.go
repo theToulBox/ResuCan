@@ -46,7 +46,7 @@ func TestAnalyze(t *testing.T) {
 	}
 }
 
-func TestFindSkills(t *testing.T) {
+func TestFind(t *testing.T) {
 	cases := []struct {
 		desc string
 		resu string
@@ -57,27 +57,29 @@ func TestFindSkills(t *testing.T) {
 		{"TestFindSoftSkillInResume", "clarity is what we need", Soft, []string{"clarity"}},
 		{"TestFindSkillsEmptyString", "", Soft, nil},
 		{"TestFindSkillsWonkyCase", "ClArItY is what we need", Soft, []string{"clarity"}},
+		{"TestFindEducationRequirment", "We require a Bachelor's Receipt or Master's Heck even a Phd", Education, []string{"bachelor's", "master's", "phd"}},
 	}
 	for _, tc := range cases {
-		got := FindSkills(tc.resu, tc.set)
+		got := Find(tc.resu, tc.set)
 		if !cmp.Equal(got, tc.want) {
 			t.Errorf("%s: got %v want %v", tc.desc, got, tc.want)
 		}
 	}
 }
 
-func TestHasLinkedIn(t *testing.T) {
+func TestHasWord(t *testing.T) {
 	cases := []struct {
 		desc string
 		txt  string
-		want bool
+		want string
+		has  bool
 	}{
-		{"TestHasLinkedIn", "a resume should have a linkedin", true},
-		{"TestNoLinkedIn", "some one's resume", false},
+		{"TestHasLinkedIn", "a resume should have a linkedin", "linkedin", true},
+		{"TestNoLinkedIn", "some one's resume", "master's", false},
 	}
 	for _, tc := range cases {
-		got := HasLinkedIn(tc.txt)
-		if got != tc.want {
+		got := HasWord(tc.txt, tc.want)
+		if got != tc.has {
 			t.Errorf("%s: got %v want %v", tc.desc, tc.txt, tc.want)
 		}
 	}
