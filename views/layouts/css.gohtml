@@ -525,7 +525,7 @@
         }
         
         .section.main {
-          background-color: #f1bb05;
+          background-color: #e86267;
           color: #fff;
         }
         
@@ -611,6 +611,9 @@
           -webkit-align-items: center;
           -ms-flex-align: center;
           align-items: center;
+        }
+        .footer {
+            background-color: #f1bb05;
         }
         
         .buffer {
@@ -921,11 +924,13 @@
           }
         }
     </style>
+    {{ template "navbar"}}
     <body>
         {{if .Alert}}
             {{template "alert" .Alert}}
         {{end}}
         {{ template "yield" .Yield }}
     </body>
+    {{ template "footer" }}
 </html>
 {{ end }}
