@@ -24,7 +24,7 @@
 			<div class="row">
 				<div class="column align-center">
 					<h1 class="test-giga text-center">
-						Result
+						Our recommendations
 					</h1>
 				</div>
 			</div>
@@ -32,23 +32,44 @@
 		<div class="circle"></div>
 	</div>
 	<div class="section">
+		<div class="container mt-xl mb-xl">
+			<div class="row">
+				<div class="column align-center">
+					<h2 class="max-w-lg text-center">
+						Resume
+					</h2>
+					<p class="text-lg text-center max-w-md">
+						Here's what we've found
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section">
 		<div class="container">
 			<div class="row items-center v-t">
 				<div class="column align-left p-2xl">
+					<img
+							src="../../public/images/flamenco-searching-1.png"
+							alt=""
+							class="feature-card"
+					/>
+				</div>
+				<div class="column align-center p-2xl">
 					<table>
 						<tr>
-							<td>LinkedIn</td>
+							<td><b>LinkedIn</b></td>
 							<td>
 								{{ if (.LinkedIn) }}
 									<p>✅ Awesome, you have your LinkedIn URL.
 									</p>
 								{{ else }}
-									<p>❌ Missing a  LinkedIn URL</p>
+									<p>❌ Add your LinkedIn</p>
 								{{ end }}
 							</td>
 						</tr>
 						<tr>
-							<td>Measurable Skill Count</td>
+							<td><b>Measurables</b></td>
 							<td>
 								{{ if (lt .Measurable 5) }}
 									<p>❌ Missing Measurable skill count. You have  {{ .Measurable }} measurable result(s), it is recommended to include a total of 5 measurable results in your resume.</p>
@@ -58,7 +79,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td>Education Requirement</td>
+							<td><b>Degree Needed</b></td>
 							<td>
 								{{ if (.Education) }}
 									<ul>
@@ -67,12 +88,12 @@
 										{{ end }}
 									</ul>
 								{{ else }}
-									<p>✅  There doesn't seem to be any education requirements</p>
+									<p>✅ No education requirement detected</p>
 								{{ end }}
 							</td>
 						</tr>
 						<tr>
-							<td>Covid 19</td>
+							<td><b>Covid 19</b></td>
 							<td>
 								{{ if (.Covid19) }}
 									<p>✅ This job has Covid-19 Precautions </p>
@@ -82,73 +103,64 @@
 							</td>
 						</tr>
 						<tr>
-							<td>Resume Length</td>
+							<td><b>Resume Length</b></td>
 							<td>
 								{{ if and (gt .ResumeLength 400) (lt .ResumeLength 1000) }}
 									<p>✅ Your resume has {{ .ResumeLength }} words, which is perfect because the ideal length is between 400 and 1000 words</p>
 								{{ else if(lt .ResumeLength 400) }}
-									<p>❌ Missing words, it is recommended to have at least 400 words in your resume and yours is {{ .ResumeLength }} </p>
+									<p>❌ It is recommended to have at least 400 words in your resume. Yours is {{ .ResumeLength }} </p>
 								{{ else if(gt .ResumeLength 1000) }}
-									<p>❌ You have too many words. It is recommended to keep your resume below 1000 words and yours is {{ .ResumeLength }} </p>
+									<p>❌ You have too many words. It is recommended to keep your resume below 1000 words. Yours is {{ .ResumeLength }} </p>
 								{{ end }}
 							</td>
 						</tr>
 					</table>
-				</div>
-				<div class="column align-center p-2xl">
-					<img
-							src="../../public/images/flamenco-290.png"
-							alt=""
-							class="feature-card"
-					/>
+
 				</div>
 			</div>
-			<div class="row reverse items-center v-t">
-				<div class="column align-left p-2xl">
-					<h2 class="max-w-lg">Hard Skills</h2>
-					<ul>
-						{{ range .HardSkills }}
-							<li>{{ . }}</li>
-						{{ end }}
-					</ul>
-				</div>
-				<div class="column align-center p-2xl">
-					<img
-							src="../../public/images/flamenco-searching-1.png"
-							alt=""
-							class="feature-card"
-					/>
+			<div class="section">
+				<div class="container mt-xl mb-xl">
+					<div class="row">
+						<div class="column align-center">
+							<h2 class="max-w-lg text-center">
+								Keywords Suggestion
+							</h2>
+							<p class="text-lg text-center max-w-md">
+								Try to add the following for a significant boost
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row items-center v-t">
-				<div class="column align-left p-2xl">
+				<div class="col-container">
+					<h2 class="max-w-lg">Soft Skills</h2>
+					<div class="col">
+
+						<ul>
+							{{ range .SoftSkills }}
+								<li>{{ . }}</li>
+							{{ end }}
+						</ul>
+					</div>
 					<h2 class="max-w-lg">
-						Soft Skills
+						Hard Skills
 					</h2>
-					<ul>
-						{{ range .SoftSkills }}
-							<li>{{ . }}</li>
-						{{ end }}
-					</ul>
-				</div>
-				<div class="column align-center p-2xl">
-					<img
-							src="../../public/images/flamenco-358.png"
-							alt=""
-							class="feature-card"
-					/>
+					<div class="col">
+
+						<ul>
+							{{ range .HardSkills }}
+								<li>{{ . }}</li>
+							{{ end }}
+						</ul>
+
+					</div>
 				</div>
 			</div>
-		</div>
 	</div>
-	<div class="section main mt-2xl">
-		<div class="container mt-2xl mb-2xl">
+	<div class="section main mt-xl">
+		<div class="container mt-xl mb-xl">
 			<div class="row items-center">
 				<div class="column align-center">
-					<h1 class="max-w-lg text-giga text-center text-white">
-						Start getting the professional feedback you need.
-					</h1>
-					<a href="/review" class="button xl main white mt-lg w-button">Start</a>
 				</div>
 			</div>
 		</div>
@@ -187,10 +199,10 @@
 					</div>
 				</div>
 				<div class="column align-left">
-					<h6 class="max-w-lg mb-xl footer-header">Use Lander for free</h6>
-					<div><a href="#">Clone on Webflow</a></div>
+					<h6 class="max-w-lg mb-xl footer-header">Site Generated by Lander Template</h6>
+					<div><a href="https://uselander.xyz/">Clone on Webflow</a></div>
 					<div class="mt-md">
-						<a href="#" target="_blank">Download a copy as a .zip</a>
+						<a href="https://uselander.xyz/" target="_blank">Download a copy as a .zip</a>
 					</div>
 				</div>
 			</div>
