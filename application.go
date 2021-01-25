@@ -17,6 +17,7 @@ func main() {
 	r.Handle("/", staticC.Home).Methods("GET")
 	r.Handle("/privacy-policy", staticC.Privacy).Methods("GET")
 	r.Handle("/terms-and-conditions", staticC.Terms).Methods("GET")
+	r.Handle("/about", staticC.About).Methods("GET")
 
 	// Resume reviews
 	r.HandleFunc("/review", reviewC.New).Methods("GET")
