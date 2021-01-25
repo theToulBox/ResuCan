@@ -1,5 +1,3 @@
+![ResuCan](https://github.com/theToulBox/ResuCan/workflows/ResuCan/badge.svg?branch=main)
+
 #  ResuCan
-
-## Can you resume beat the ATS? 
-### It will with ResuCan
-

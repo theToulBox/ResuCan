@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/9-2-5-Resume-Scan.iml" filepath="$PROJECT_DIR$/.idea/9-2-5-Resume-Scan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ResuCan.iml" filepath="$PROJECT_DIR$/.idea/ResuCan.iml" />
     </modules>
   </component>
 </project>
