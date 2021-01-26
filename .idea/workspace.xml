@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Refactored CSS and HTML into templates and added about page.">
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added back the navbar gradient.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/css.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/css.gohtml" afterDir="false" />
     </list>
@@ -189,7 +189,8 @@
     <MESSAGE value="Added pics." />
     <MESSAGE value="Rough draft completed." />
     <MESSAGE value="Refactored CSS and HTML into templates and added about page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored CSS and HTML into templates and added about page." />
+    <MESSAGE value="Added back the navbar gradient." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added back the navbar gradient." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
