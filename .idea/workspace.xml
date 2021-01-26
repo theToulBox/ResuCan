@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Rough draft completed.">
-      <change afterPath="$PROJECT_DIR$/views/layouts/footer.gohtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/layouts/navbar.gohtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/static/about.gohtml" afterDir="false" />
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added back the navbar gradient.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/application.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/static.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/static.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/css.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/css.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/review/new.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/review/new.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/review/result.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/review/result.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/static/home.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/static/home.gohtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +23,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="review-resume" />
+        <entry key="$PROJECT_DIR$" value="refactor-css-html" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -196,7 +188,9 @@
     <MESSAGE value="Changed Diff to match desired behavior." />
     <MESSAGE value="Added pics." />
     <MESSAGE value="Rough draft completed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rough draft completed." />
+    <MESSAGE value="Refactored CSS and HTML into templates and added about page." />
+    <MESSAGE value="Added back the navbar gradient." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added back the navbar gradient." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
