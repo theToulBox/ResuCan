@@ -1,10 +1,10 @@
 {{ define "yield" }}
 	<div class="section overflow-hidden">
-		<div class="container mt-3xl mb-3xl">
+		<div class="container mt-2xl mb-2xl">
 			<div class="row">
 				<div class="column align-center">
 					<h1 class="test-giga text-center">
-						Our recommendations
+						Feedback
 					</h1>
 				</div>
 			</div>
@@ -16,11 +16,8 @@
 			<div class="row">
 				<div class="column align-center">
 					<h2 class="max-w-lg text-center">
-						Resume
+						Here's what's missing from your resume and what to do about it.
 					</h2>
-					<p class="text-lg text-center max-w-md">
-						Here's what we've found
-					</p>
 				</div>
 			</div>
 		</div>
@@ -29,110 +26,49 @@
 		<div class="container">
 			<div class="row items-center v-t">
 				<div class="column align-left p-2xl">
-					<img
-							src="../../public/images/flamenco-searching-1.png"
-							alt=""
-							class="feature-card"
-					/>
-				</div>
-				<div class="column align-center p-2xl">
-					<table>
-						<tr>
-							<td><b>LinkedIn</b></td>
-							<td>
-								{{ if (.LinkedIn) }}
-									<p>✅ Awesome, you have your LinkedIn URL.
-									</p>
-								{{ else }}
-									<p>❌ Add your LinkedIn</p>
-								{{ end }}
-							</td>
-						</tr>
-						<tr>
-							<td><b>Measurables</b></td>
-							<td>
-								{{ if (lt .Measurable 5) }}
-									<p>❌ Missing Measurable skill count. You have  {{ .Measurable }} measurable result(s), it is recommended to include a total of 5 measurable results in your resume.</p>
-								{{ else if (gt .Measurable 5) }}
-									<p>✅ Impressive, you have {{ .Measurable }}, which is above above the suggested minimum of 5!</p>
-								{{ end }}
-							</td>
-						</tr>
-						<tr>
-							<td><b>Degree Needed</b></td>
-							<td>
-								{{ if (.Education) }}
-									<ul>
-										{{ range .Education}}
-											<li>{{ . }}</li>
-										{{ end }}
-									</ul>
-								{{ else }}
-									<p>✅ No education requirement detected</p>
-								{{ end }}
-							</td>
-						</tr>
-						<tr>
-							<td><b>Covid 19</b></td>
-							<td>
-								{{ if (.Covid19) }}
-									<p>✅ This job has Covid-19 Precautions </p>
-								{{ else }}
-									<p>❌  This job doesn't have Covid-19 Precautions</p>
-								{{ end }}
-							</td>
-						</tr>
-						<tr>
-							<td><b>Resume Length</b></td>
-							<td>
-								{{ if and (gt .ResumeLength 400) (lt .ResumeLength 1000) }}
-									<p>✅ Your resume has {{ .ResumeLength }} words, which is perfect because the ideal length is between 400 and 1000 words</p>
-								{{ else if(lt .ResumeLength 400) }}
-									<p>❌ It is recommended to have at least 400 words in your resume. Yours is {{ .ResumeLength }} </p>
-								{{ else if(gt .ResumeLength 1000) }}
-									<p>❌ You have too many words. It is recommended to keep your resume below 1000 words. Yours is {{ .ResumeLength }} </p>
-								{{ end }}
-							</td>
-						</tr>
-					</table>
+					<div class="container">
+						<h3>Missing</h3>
+						<ul id="incomplete-tasks">
 
-				</div>
-			</div>
-			<div class="section">
-				<div class="container mt-xl mb-xl">
-					<div class="row">
-						<div class="column align-center">
-							<h2 class="max-w-lg text-center">
-								Keywords Suggestion
-							</h2>
-							<p class="text-lg text-center max-w-md">
-								Try to add the following for a significant boost
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-				<div class="col-container">
-					<div class="col">
-						<h2 class="max-w-lg">Soft Skills</h2>
-						<ul>
+							{{ if (not .LinkedIn) }}
+								<li><input type="checkbox"><label>Add your LinkedIn below your name. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
+							{{ end }}
+
+							{{ if (lt .Measurable 5) }}
+								<li><input type="checkbox"><label>You have  {{ .Measurable }} measurable result(s), it is recommended to include a total of 5 measurable results in your resume</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
+
+							{{ end }}
+
+							{{ if (lt .ResumeLength 400) }}
+								<li><input type="checkbox"><label>Make your Resume at least 400 words, right now it is {{ .ResumeLength }}</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
+							{{ end }}
+
+							{{ if (gt .ResumeLength 1000) }}
+								<li><input type="checkbox"><label>Trim some words from your resume. It is {{ .ResumeLength }} and the recommended length is below 1000 words. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
+							{{ end }}
+
 							{{ range .SoftSkills }}
-								<li>{{ . }}</li>
+								<li><input type="checkbox"><label> Add this soft skill: {{ . }} </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
-						</ul>
-					</div>
-					<div class="col">
-						<h2 class="max-w-lg">
-							Hard Skills
-						</h2>
-						<ul>
+
 							{{ range .HardSkills }}
-								<li>{{ . }}</li>
+								<li><input type="checkbox"><label> Add this hard skill: {{ . }} </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
 						</ul>
 
 					</div>
 				</div>
+			</div>
+			<div class="column align-center p-2xl">
+				<div class="container">
+					<h3>Completed.</h3>
+					<ul id="completed-tasks">
+					</ul>
+				</div>
+			</div>
 			</div>
 	</div>
+
+	<script type="text/javascript" src="./../public/js/app.js"></script>
+
 {{ end }}
