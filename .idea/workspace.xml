@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Trying out adsense.">
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Incorporated copyright feedback.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/footer.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/footer.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/review/new.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/review/new.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/static/about.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/static/about.gohtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/css.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/css.gohtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/static/home.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/static/home.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/static/privacy-policy.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/static/privacy-policy.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/static/terms-and-conditions.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/static/terms-and-conditions.gohtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +192,8 @@
     <MESSAGE value="Refactored CSS and HTML into templates and added about page." />
     <MESSAGE value="Added back the navbar gradient." />
     <MESSAGE value="Trying out adsense." />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying out adsense." />
+    <MESSAGE value="Incorporated copyright feedback." />
+    <option name="LAST_COMMIT_MESSAGE" value="Incorporated copyright feedback." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
