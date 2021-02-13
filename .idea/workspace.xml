@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added back the navbar gradient.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/css.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/css.gohtml" afterDir="false" />
-    </list>
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added Testimonials and Gif loop" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +12,7 @@
       <list>
         <option value="Go File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -23,7 +21,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="refactor-css-html" />
+        <entry key="$PROJECT_DIR$" value="users-protected-views" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,7 +60,8 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -132,23 +131,16 @@
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="gobench github.com/theToulBox/ResuCan/controllers" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="ResuCan" />
-      <working_directory value="$PROJECT_DIR$/controllers" />
-      <framework value="gobench" />
-      <kind value="PACKAGE" />
-      <package value="github.com/theToulBox/ResuCan/controllers" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
+    <configuration name="result.gohtml" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ResuCan/views/review/result.gohtml" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Test.go test github.com/theToulBox/ResuCan/controllers" />
+        <item itemvalue="Go Test.TestAnalyze in github.com/theToulBox/ResuCan/controllers" />
+        <item itemvalue="JavaScript Debug.result.gohtml" />
         <item itemvalue="Go Build.go build github.com/theToulBox/ResuCan" />
         <item itemvalue="Go Test.TestDiff in github.com/theToulBox/ResuCan/controllers" />
-        <item itemvalue="Go Test.gobench github.com/theToulBox/ResuCan/controllers" />
-        <item itemvalue="Go Test.TestAnalyze in github.com/theToulBox/ResuCan/controllers" />
       </list>
     </recent_temporary>
   </component>
@@ -169,7 +161,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Renamed." />
     <MESSAGE value="Added a few tests." />
     <MESSAGE value="Renamed the project." />
     <MESSAGE value="Trivial commit." />
@@ -190,12 +181,17 @@
     <MESSAGE value="Rough draft completed." />
     <MESSAGE value="Refactored CSS and HTML into templates and added about page." />
     <MESSAGE value="Added back the navbar gradient." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added back the navbar gradient." />
+    <MESSAGE value="Trying out adsense." />
+    <MESSAGE value="Incorporated copyright feedback." />
+    <MESSAGE value="Added rough version of testimonials." />
+    <MESSAGE value="Reworked Result page to be interactive." />
+    <MESSAGE value="Added Testimonials and Gif loop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Testimonials and Gif loop" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ResuCan$go_test_github_com_theToulBox_ResuCan_controllers.out" NAME="go test github.com/theToulBox/ResuCan/controllers Coverage Results" MODIFIED="1611416042828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ResuCan$go_test_github_com_theToulBox_ResuCan_controllers.out" NAME="go test github.com/theToulBox/ResuCan/controllers Coverage Results" MODIFIED="1613185476625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
