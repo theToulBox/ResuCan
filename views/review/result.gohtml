@@ -3,9 +3,13 @@
 		<div class="container mt-2xl mb-2xl">
 			<div class="row">
 				<div class="column align-center">
-					<h1 class="test-giga text-center">
-						Feedback
-					</h1>
+						{{ if and (gt .Score 60.00) (lt .Score 80.00) }}
+							<h1 style="color:yellow" class="test-giga text-center"> Score {{ .Score }}</h1>
+						{{ else if and (gt .Score 0.00) (lt .Score 60.00) }}
+							<h1 style="color:red" class="test-giga text-center"> Score {{ .Score }}</h1>
+						{{ else if and (gt .Score 80.00) (lt .Score 100.00)}}
+							<h1 style="color:green" class="test-giga text-center"> Score {{ .Score }}</h1>
+						{{ end }}
 				</div>
 			</div>
 		</div>
@@ -34,16 +38,16 @@
 								<li><input type="checkbox"><label>Add your LinkedIn below your name. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
 
-							{{ if (lt .Measurable 5) }}
+							{{ if (lt .Measurable 5.00) }}
 								<li><input type="checkbox"><label>You have  {{ .Measurable }} measurable result(s), it is recommended to include a total of 5 measurable results in your resume</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 
 							{{ end }}
 
-							{{ if (lt .ResumeLength 400) }}
+							{{ if (lt .ResumeLength 400.00) }}
 								<li><input type="checkbox"><label>Make your Resume at least 400 words, right now it is {{ .ResumeLength }}</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
 
-							{{ if (gt .ResumeLength 1000) }}
+							{{ if (gt .ResumeLength 1000.00) }}
 								<li><input type="checkbox"><label>Trim some words from your resume. It is {{ .ResumeLength }} and the recommended length is below 1000 words. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
 

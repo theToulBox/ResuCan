@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"math"
 	"net/http"
 	"regexp"
 	"sort"
@@ -30,13 +31,22 @@ type ReviewForm struct {
 // Result is the conclusion of the analysis
 // Add Covid19Precautions
 type Result struct {
-	Covid19      bool
 	LinkedIn     bool
-	ResumeLength int
-	Measurable   int
-	Education    []string
+	ResumeLength float64
+	Measurable   float64
+	Score        float64
 	HardSkills   []string
 	SoftSkills   []string
+}
+
+type CalculateScoreArg struct {
+	HasLinkedIn          bool
+	ResumeLength         float64
+	MeasurableSkillCount float64
+	ResSoftSkillsMatch   float64
+	ResHardSkillsMatch   float64
+	JobHardSkills        float64
+	JobSoftSkills        float64
 }
 
 // NewReview Renders the views.
@@ -82,10 +92,7 @@ func (re *Review) Analyze(r, d string) (*Result, error) {
 	resu := strings.ToLower(r)
 	desc := strings.ToLower(d)
 	linkedIn := HasWord(resu, "linkedin")
-	covid19 := HasWord(desc, "covid-19 precaution(s)")
 	rLength := ResumeLength(resu)
-	// Find Education requirement
-	preferred := Find(desc, Education)
 
 	// Collect keywords from Job description
 	JobDescrHardSkills := Find(desc, Hard)
@@ -104,17 +111,64 @@ func (re *Review) Analyze(r, d string) (*Result, error) {
 	sSkills := Diff(JobDescrSoftSkills, ResumeSoftSkills)
 
 	mSkillCount := MeasurableSkillCount(resu)
+	//fmt.Printf("\nHasLinkedIn %v, ResumeLength %v, MSkill %v", linkedIn, rLength, mSkillCount)
+	score := CalculateScore(&CalculateScoreArg{
+		HasLinkedIn:          linkedIn,
+		ResumeLength:         rLength,
+		MeasurableSkillCount: mSkillCount,
+		ResSoftSkillsMatch:   float64(len(Intersection(ResumeSoftSkills, JobDescrSoftSkills))),
+		ResHardSkillsMatch:   float64(len(Intersection(ResumeHardSkills, JobDescrHardSkills))),
+		JobHardSkills:        float64(len(ResumeHardSkills)),
+		JobSoftSkills:        float64(len(ResumeSoftSkills)),
+	})
 
 	res := &Result{
-		Covid19:      covid19,
+		Score:        score,
 		LinkedIn:     linkedIn,
-		Education:    preferred,
 		HardSkills:   hSkills,
 		SoftSkills:   sSkills,
 		ResumeLength: rLength,
 		Measurable:   mSkillCount,
 	}
 	return res, nil
+}
+
+// CalculateScore takes in the Result
+// and base on it's value gives the user a score
+func CalculateScore(c *CalculateScoreArg) float64 {
+	WT := 100.00 / 5.00
+	sum := 0.00
+	maxScore := 100.00
+	linkedInScore := 0.00
+	if c.HasLinkedIn {
+		linkedInScore = WT
+	}
+	rLengthScore := (c.ResumeLength / 598) * WT
+	// What about the case when there is no are zero JobHardSkills or JobSoftSkills
+	// should we default to 1 so tha the top is de
+	if c.JobHardSkills == 0.00 {
+		// Force a 0 / 1 => 0
+		c.ResHardSkillsMatch = 0.00
+		c.JobHardSkills = 1.00
+	}
+	if c.JobSoftSkills == 0.00 {
+		// Force a 0 / 1 => 0
+		c.ResSoftSkillsMatch = 0.00
+		c.JobSoftSkills = 1.00
+	}
+	if c.MeasurableSkillCount >= 5.00 {
+		c.MeasurableSkillCount = 5.00
+	}
+	mSkillScore := (c.MeasurableSkillCount / 5) * WT
+	hSkillScore := (c.ResHardSkillsMatch / c.JobHardSkills) * WT
+	sSkillScore := (c.ResSoftSkillsMatch / c.JobSoftSkills) * WT
+
+	sum = float64(rLengthScore + hSkillScore + sSkillScore + mSkillScore + linkedInScore)
+	//fmt.Printf("\nmSkillScore %v, hSkillScore %v, sSkillScore %v, rLengthScore %v, linkedInScore %v", mSkillScore, hSkillScore, sSkillScore, rLengthScore, linkedInScore)
+	//fmt.Println("\nsum", sum)
+	userScore := (sum / maxScore) * 100.00
+
+	return toFixed(userScore, 2)
 }
 
 func Find(t string, set []string) (skills []string) {
@@ -172,12 +226,37 @@ func RemoveDups(elements []string) (nodups []string) {
 }
 
 // Resumes should be between 400 and 1000 words
-func ResumeLength(res string) int {
-	return len(strings.Split(res, " "))
+func ResumeLength(res string) float64 {
+	return float64(len(strings.Split(res, " ")))
 }
 
-func MeasurableSkillCount(t string) int {
+func MeasurableSkillCount(t string) float64 {
 	re := regexp.MustCompile(`[\$ ]+?(\d+([,\.\d]+)?)`)
 	nums := re.FindAllString(t, -1)
-	return len(nums)
+	return float64(len(nums))
+}
+
+func toFixed(num float64, precision int) float64 {
+	output := math.Pow(10, float64(precision))
+	return float64(round(num*output)) / output
+}
+
+func round(num float64) int {
+	return int(num + math.Copysign(0.5, num))
+}
+
+func Intersection(s1, s2 []string) (inter []string) {
+	hash := make(map[string]bool)
+	for _, e := range s1 {
+		hash[e] = true
+	}
+	for _, e := range s2 {
+		// If elements present in the hashmap then append intersection list.
+		if hash[e] {
+			inter = append(inter, e)
+		}
+	}
+	//Remove dups from slice.
+	inter = RemoveDups(inter)
+	return
 }
