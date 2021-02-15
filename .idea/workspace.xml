@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added Testimonials and Gif loop" />
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Commented out dynamic security scan for this one.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/css.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/css.gohtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/static/home.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/static/home.gohtml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +25,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="users-protected-views" />
+        <entry key="$PROJECT_DIR$" value="feedback-from-saron" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -161,7 +165,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added a few tests." />
     <MESSAGE value="Renamed the project." />
     <MESSAGE value="Trivial commit." />
     <MESSAGE value="Added some commments." />
@@ -186,7 +189,8 @@
     <MESSAGE value="Added rough version of testimonials." />
     <MESSAGE value="Reworked Result page to be interactive." />
     <MESSAGE value="Added Testimonials and Gif loop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Testimonials and Gif loop" />
+    <MESSAGE value="Commented out dynamic security scan for this one." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commented out dynamic security scan for this one." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
