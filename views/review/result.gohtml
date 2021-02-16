@@ -4,17 +4,24 @@
 			<div class="row">
 				<div class="column align-center">
 						{{ if and (gt .Score 60.00) (lt .Score 80.00) }}
-							<h1 style="color:yellow" class="test-giga text-center"> Score {{ .Score }}</h1>
+							<h1 class="test-giga text-center"> Score: {{ .Score }}</h1>
 						{{ else if and (gt .Score 0.00) (lt .Score 60.00) }}
-							<h1 style="color:red" class="test-giga text-center"> Score {{ .Score }}</h1>
+							<h1 class="test-giga text-center"> Score: {{ .Score }}</h1>
 						{{ else if and (gt .Score 80.00) (lt .Score 100.00)}}
-							<h1 style="color:green" class="test-giga text-center"> Score {{ .Score }}</h1>
+							<h1 class="test-giga text-center"> Score: {{ .Score }}</h1>
 						{{ end }}
 				</div>
 			</div>
 		</div>
-		<div class="circle"></div>
+		{{ if and (gt .Score 60.00) (lt .Score 80.00) }}
+			<div style="background-color:#f1bb05" class="circle"></div>
+		{{ else if and (gt .Score 0.00) (lt .Score 60.00) }}
+			<div style="background-color:#CF2323" class="circle"></div>
+		{{ else if and (gt .Score 80.00) (lt .Score 100.00)}}
+			<div style="background-color:#00cc00" class="circle"></div>
+		{{ end }}
 	</div>
+	{{ if (lt .Score 80.00) }}
 	<div class="section">
 		<div class="container mt-xl mb-xl">
 			<div class="row">
@@ -33,7 +40,6 @@
 					<div class="container">
 						<h3>Missing</h3>
 						<ul id="incomplete-tasks">
-
 							{{ if (not .LinkedIn) }}
 								<li><input type="checkbox"><label>Add your LinkedIn below your name. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
@@ -63,16 +69,39 @@
 					</div>
 				</div>
 			</div>
-			<div class="column align-center p-2xl">
+		<div class="row items-center v-t">
+			<div class="column align-left p-2xl">
 				<div class="container">
-					<h3>Completed.</h3>
+					<h3>Completed</h3>
 					<ul id="completed-tasks">
 					</ul>
 				</div>
 			</div>
 			</div>
+		</div>
+		{{ else }}
+			<div class="section">
+				<div class="container mt-xl mb-xl">
+					<div class="row">
+						<div class="column align-center">
+							<h2 class="max-w-lg text-center">
+								Excellent resume, go ahead and apply for the job posting.
+							</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		{{ end }}
 	</div>
-
+	<div class="section main mt-2xl">
+		<div class="container mt-2xl mb-2xl">
+			<div class="row items-center">
+				<div class="column align-center">
+					<a href="/review" class="button xl main white mt-lg w-button">New Scan</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script type="text/javascript" src="./../public/js/app.js"></script>
 
 {{ end }}
