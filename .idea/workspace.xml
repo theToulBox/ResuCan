@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment=":fire: Google Ads b/c site not passing quality content threshold yet.">
-      <change afterPath="$PROJECT_DIR$/public/images/product-shot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/productGif.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/review/result.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/review/result.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/static/home.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/static/home.gohtml" afterDir="false" />
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="added google analytics and swapped out gif.">
+      <change beforePath="$PROJECT_DIR$/controllers/review.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +163,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added some commments." />
     <MESSAGE value="Incorporated golangci + security check comments." />
     <MESSAGE value="Removed S010 complaint from golang-ci" />
     <MESSAGE value="added another test" />
@@ -193,7 +187,8 @@
     <MESSAGE value="Commented out dynamic security scan for this one." />
     <MESSAGE value=":fire: Google Ads b/c site not passing quality content threshold yet." />
     <MESSAGE value="Added google analytics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added google analytics" />
+    <MESSAGE value="added google analytics and swapped out gif." />
+    <option name="LAST_COMMIT_MESSAGE" value="added google analytics and swapped out gif." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

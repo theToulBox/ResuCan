@@ -137,7 +137,6 @@ func (re *Review) Analyze(r, d string) (*Result, error) {
 // and base on it's value gives the user a score
 func CalculateScore(c *CalculateScoreArg) float64 {
 	WT := 100.00 / 5.00
-	sum := 0.00
 	maxScore := 100.00
 	linkedInScore := 0.00
 	if c.HasLinkedIn {
@@ -163,9 +162,8 @@ func CalculateScore(c *CalculateScoreArg) float64 {
 	hSkillScore := (c.ResHardSkillsMatch / c.JobHardSkills) * WT
 	sSkillScore := (c.ResSoftSkillsMatch / c.JobSoftSkills) * WT
 
-	sum = float64(rLengthScore + hSkillScore + sSkillScore + mSkillScore + linkedInScore)
-	//fmt.Printf("\nmSkillScore %v, hSkillScore %v, sSkillScore %v, rLengthScore %v, linkedInScore %v", mSkillScore, hSkillScore, sSkillScore, rLengthScore, linkedInScore)
-	//fmt.Println("\nsum", sum)
+	sum := float64(rLengthScore + hSkillScore + sSkillScore + mSkillScore + linkedInScore)
+
 	userScore := (sum / maxScore) * 100.00
 
 	return toFixed(userScore, 2)
