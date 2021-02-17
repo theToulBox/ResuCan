@@ -41,12 +41,11 @@
 						<h3>Missing</h3>
 						<ul id="incomplete-tasks">
 							{{ if (not .LinkedIn) }}
-								<li><input type="checkbox"><label>Add your LinkedIn below your name. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
+								<li><a href="/where-to-add-linkedin-on-resume">Where to Add LinkedIn on Resume</a><input type="checkbox"><label>Add your LinkedIn below your name. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
 
 							{{ if (lt .Measurable 5.00) }}
-								<li><input type="checkbox"><label>You have  {{ .Measurable }} measurable result(s), it is recommended to include a total of 5 measurable results in your resume</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
-
+								<li><a href="/measurables-on-resume-examples">Measurables on Resume Examples</a><input type="checkbox"><label>You have  {{ .Measurable }} measurable result(s), it is recommended to include a total of 5 measurable results in your resume</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
 
 							{{ if (lt .ResumeLength 400.00) }}

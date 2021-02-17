@@ -16,6 +16,8 @@ func main() {
 	r := mux.NewRouter()
 	r.Handle("/", staticC.Home).Methods("GET")
 	r.Handle("/privacy-policy", staticC.Privacy).Methods("GET")
+	r.Handle("/where-to-add-linkedin-on-resume", staticC.WhereToAddLinkedIn).Methods("GET")
+	r.Handle("/measurables-on-resume-examples", staticC.WhereToAddLinkedIn).Methods("GET")
 	r.Handle("/terms-and-conditions", staticC.Terms).Methods("GET")
 	r.Handle("/about", staticC.About).Methods("GET")
 
