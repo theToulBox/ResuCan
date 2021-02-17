@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added in examples for items">
-      <change afterPath="$PROJECT_DIR$/views/static/what-are-hard-skills.gohtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/static/what-are-soft-skills.gohtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/static/why-resume-length-matters.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.go" beforeDir="false" afterPath="$PROJECT_DIR$/application.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/static.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/static.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/css.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/css.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/review/result.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/review/result.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/static/measurables-on-resume-examples.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/static/measurables-on-resume-examples.gohtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/static/where-to-add-linkedin-on-resume.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/static/where-to-add-linkedin-on-resume.gohtml" afterDir="false" />
-    </list>
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added in articles, now to fix the formatting issue." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +165,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Analyze test" />
     <MESSAGE value="Refactored Tests." />
     <MESSAGE value="Added status badge." />
     <MESSAGE value="Removed unused code." />
@@ -202,7 +189,8 @@
     <MESSAGE value="Removed unused line." />
     <MESSAGE value="reduced image size" />
     <MESSAGE value="Added in examples for items" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added in examples for items" />
+    <MESSAGE value="Added in articles, now to fix the formatting issue." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added in articles, now to fix the formatting issue." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
