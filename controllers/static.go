@@ -11,6 +11,9 @@ type Static struct {
 	About              *views.View
 	WhereToAddLinkedIn *views.View
 	MeasurablesExample *views.View
+	ResumeLength       *views.View
+	HardSkills         *views.View
+	SoftSkills         *views.View
 }
 
 // NewStatic returns a the Static webpages for
@@ -23,5 +26,8 @@ func NewStatic() *Static {
 		About:              views.NewView("css", "static/about"),
 		WhereToAddLinkedIn: views.NewView("css", "static/where-to-add-linkedin-on-resume"),
 		MeasurablesExample: views.NewView("css", "static/measurables-on-resume-examples"),
+		ResumeLength:       views.NewView("css", "static/why-resume-length-matters"),
+		HardSkills:         views.NewView("css", "static/what-are-hard-skills"),
+		SoftSkills:         views.NewView("css", "static/what-are-soft-skills"),
 	}
 }

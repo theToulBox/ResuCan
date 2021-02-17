@@ -17,7 +17,10 @@ func main() {
 	r.Handle("/", staticC.Home).Methods("GET")
 	r.Handle("/privacy-policy", staticC.Privacy).Methods("GET")
 	r.Handle("/where-to-add-linkedin-on-resume", staticC.WhereToAddLinkedIn).Methods("GET")
-	r.Handle("/measurables-on-resume-examples", staticC.WhereToAddLinkedIn).Methods("GET")
+	r.Handle("/measurables-on-resume-examples", staticC.MeasurablesExample).Methods("GET")
+	r.Handle("/what-are-hard-skills", staticC.HardSkills).Methods("GET")
+	r.Handle("/what-are-soft-skills", staticC.SoftSkills).Methods("GET")
+	r.Handle("/why-resume-length-matters", staticC.ResumeLength).Methods("GET")
 	r.Handle("/terms-and-conditions", staticC.Terms).Methods("GET")
 	r.Handle("/about", staticC.About).Methods("GET")
 

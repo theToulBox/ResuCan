@@ -36,38 +36,33 @@
 	<div class="section">
 		<div class="container">
 			<div class="row items-center v-t">
-				<div class="column align-left p-2xl">
+				<div class="column align-center p-2xl">
 					<div class="container">
 						<h3>Missing</h3>
 						<ul id="incomplete-tasks">
 							{{ if (not .LinkedIn) }}
-								<li><a href="/where-to-add-linkedin-on-resume">Where to Add LinkedIn on Resume</a><input type="checkbox"><label>Add your LinkedIn below your name. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
+								<li><a href="/where-to-add-linkedin-on-resume"  class="u mr-lg">Where to Add LinkedIn</a><input type="checkbox"><label>Add your LinkedIn below your name. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
 
 							{{ if (lt .Measurable 5.00) }}
-								<li><a href="/measurables-on-resume-examples">Measurables on Resume Examples</a><input type="checkbox"><label>You have  {{ .Measurable }} measurable result(s), it is recommended to include a total of 5 measurable results in your resume</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
+								<li><a href="/measurables-on-resume-examples"  class="u mr-lg">Measurable Examples</a><input type="checkbox"><label>{{ .Measurable }} measurable result(s) found, it is recommended to have at least 5.</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
 
 							{{ if (lt .ResumeLength 400.00) }}
-								<li><input type="checkbox"><label>Make your Resume at least 400 words, right now it is {{ .ResumeLength }}</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
+								<li><a href="/why-resume-length-matters"  class="u mr-lg">Why Resume length?</a><input type="checkbox"><label>Make your Resume at least 400 words, right now it is {{ .ResumeLength }}</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
 
 							{{ if (gt .ResumeLength 1000.00) }}
-								<li><input type="checkbox"><label>Trim some words from your resume. It is {{ .ResumeLength }} and the recommended length is below 1000 words. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
+								<li><a href="/why-resume-length-matters"  class="u mr-lg">Why Resume length?</a><input type="checkbox"><label>Trim some words from your resume. It is {{ .ResumeLength }} and the recommended length is below 1000 words. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 							{{ end }}
 
-							{{ range .SoftSkills }}
-								<li><input type="checkbox"><label> Add this soft skill: {{ . }} </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
-							{{ end }}
-
-							{{ range .HardSkills }}
-								<li><input type="checkbox"><label> Add this hard skill: {{ . }} </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
-							{{ end }}
+								<li><a href="/what-are-soft-skills"  class="u mr-lg">What are Soft Skills?</a><input type="checkbox"><label> Add these soft skills: {{ range .SoftSkills }} {{ . }}, {{ end }}</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
+								<li><a href="/what-are-hard-skills"  class="u mr-lg">What are Hard Skills?</a><input type="checkbox"><label> Add these  hard skills: {{ range .HardSkills }} {{ . }}, {{ end }}</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
 						</ul>
-
 					</div>
 				</div>
 			</div>
+
 		<div class="row items-center v-t">
 			<div class="column align-left p-2xl">
 				<div class="container">
