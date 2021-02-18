@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Updated main.yaml.">
-      <change afterPath="$PROJECT_DIR$/public/images/product-shot-for-social-media.png" afterDir="false" />
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Added picture for social media sharing.">
+      <change afterPath="$PROJECT_DIR$/public/images/resucan-twitter-share-link-with-image.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/review_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/product-shot-for-social-media.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/css.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/css.gohtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +26,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feedback-from-saron" />
+        <entry key="$PROJECT_DIR$" value="add-google-analytics-small-homepage-restructure" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -171,7 +170,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Completed rough draft. Next to style the results page." />
     <MESSAGE value="styled new scan page and started on the results page." />
     <MESSAGE value="Converted to raw string per static check suggestion." />
     <MESSAGE value="Removed unnecessary '\'" />
@@ -196,7 +194,8 @@
     <MESSAGE value="Corrected awkwardness." />
     <MESSAGE value="Updated Readme." />
     <MESSAGE value="Updated main.yaml." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated main.yaml." />
+    <MESSAGE value="Added picture for social media sharing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added picture for social media sharing." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
