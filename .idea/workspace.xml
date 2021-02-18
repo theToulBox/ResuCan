@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Corrected awkwardness." />
+    <list default="true" id="ea4538f1-11b4-41ad-afec-b689009c2539" name="Default Changelist" comment="Updated main.yaml.">
+      <change afterPath="$PROJECT_DIR$/public/images/product-shot-for-social-media.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/review_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/review_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/css.gohtml" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/css.gohtml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,8 +74,8 @@
       <recent name="$PROJECT_DIR$/views/static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/views/static" />
       <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/views/static" />
     </key>
   </component>
   <component name="RunManager" selected="Go Test.go test github.com/theToulBox/ResuCan/controllers">
@@ -165,8 +171,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added status badge." />
-    <MESSAGE value="Removed unused code." />
     <MESSAGE value="Completed rough draft. Next to style the results page." />
     <MESSAGE value="styled new scan page and started on the results page." />
     <MESSAGE value="Converted to raw string per static check suggestion." />
@@ -190,7 +194,9 @@
     <MESSAGE value="Added in examples for items" />
     <MESSAGE value="Added in articles, now to fix the formatting issue." />
     <MESSAGE value="Corrected awkwardness." />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected awkwardness." />
+    <MESSAGE value="Updated Readme." />
+    <MESSAGE value="Updated main.yaml." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated main.yaml." />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
