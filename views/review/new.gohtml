@@ -1,10 +1,77 @@
 {{ define "yield" }}
+	<style>
+		/* Tooltip container */
+		.tooltip {
+			position: relative;
+			display: inline-block;
+			border-bottom: 1px dotted #e86468; /* If you want dots under the hoverable text */
+		}
+
+		/* Tooltip text */
+		.tooltip .tooltiptext {
+			visibility: hidden;
+			width: 100%;
+			top: -5px;
+			right: 105%;
+			background-color: #e86468;
+			color: #fff;
+			text-size: 16px;
+			text-align: left;
+			padding: 5px 5px;
+			border-radius: 6px;
+
+			/* Position the tooltip text - see examples below! */
+			position: absolute;
+			z-index: 1;
+		}
+
+		/* Show the tooltip text when you mouse over the tooltip container */
+		.tooltip:hover .tooltiptext {
+			visibility: visible;
+		}
+		.tooltip .tooltiptext::after {
+			content: " ";
+			position: absolute;
+			top: 50%;
+			left: 100%; /* To the right of the tooltip */
+			margin-top: -5px;
+			border-width: 5px;
+			border-style: solid;
+			border-color: transparent transparent transparent #e86468;
+		}
+
+		.form-item {
+			margin-bottom: 10px;
+			width: 100%;
+		}
+
+		.button:hover {
+			background: #00c8ff;
+		}
+
+		.top {
+			background: #009dff;
+			background:linear-gradient(to right,#009dff 0,#00c8ff 100%);
+			position:fixed;
+			z-index:1031;
+			top:0;
+			left:0;
+			height:20px;
+			transition:all 1s;
+			width:0;
+			overflow: hidden;
+		}
+		.colors {
+			width: 100%;
+			height: 4px;
+		}
+	</style>
 	<div class="section overflow-hidden">
 		<div class="container mt-2xl mb-2xl">
 			<div class="row">
 				<div class="column align-center">
 					<h1 class="test-giga text-center">
-						Copy and Paste
+						Resume Analysis
 					</h1>
 					<div class="row items-center mt-lg _w-full max-w-lg wrap justify-center">
 					</div>
@@ -17,33 +84,47 @@
 {{ end }}
 
 {{ define "scanForm" }}
-<form action="/review" method="POST" id="ReviewForm">
+<form class="form" name="form" action="/review" method="POST" id="ReviewForm">
 {{ csrfField }}
 	<div class="row items-center v-t">
+		<div class="top">
+			<div class="colors"></div>
+		</div>
 		<div class="column align-left p-2xl">
 		</div>
-		<div class="column align-center p-2xl">
-			<h6> Your Resume Below.</h6>
-			<textarea type="resume" name="resume" cols="25" rows="30"></textarea>
-		</div>
-		<div class="column align-center p-2xl">
-			<h6>The Job Description Below.</h6>
-			<textarea type="description" name="description" cols="25" rows="30"></textarea>
-		</div>
-		<div class="column align-center p-2xl">
-		</div>
+
+			<div class="column align-center p-2xl">
+				<div class="tooltip">
+					<h3 style="color:#e86468">Resume Below</h3>
+					<span class="tooltiptext">
+					Open your resume, select all, then copy and paste it below. Don't worry about formatting it.
+				</span>
+				</div>
+				<textarea class="form-item" type="resume" name="resume" cols="25" rows="30"></textarea>
+			</div>
+			<div class="column align-center p-2xl">
+				<div class="tooltip">
+					<h3 style="color:#e86468">Job Description Below</h3>
+					<span class="tooltiptext">
+					Copy and paste the job description below, there's no need to format it.
+				</span>
+				</div>
+				<textarea class="form-item" type="description" name="description" cols="25" rows="30"></textarea>
+			</div>
+
+		<div class="column align-center p-2xl"></div>
 	</div>
 	<div class="section main mt-lg">
 		<div class="container mt-lg mb-lg">
 			<div class="row items-center">
 				<div class="column align-center">
 					<div class="section">
-						<button type="submit" form="ReviewForm" class="button xl main white mt-lg w-button">Feedback</button>
+						<button type="submit" form="ReviewForm" class="button xl main white mt-lg w-button">Enter</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</form> 
-
+</form>
+<script type="text/javascript" src="./../public/js/form.js"></script>
 {{ end }}
