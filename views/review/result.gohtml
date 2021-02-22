@@ -1,4 +1,22 @@
 {{ define "yield" }}
+	<style>
+		table {
+			width: 100%;
+
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			border: 1px solid black;
+			background-color: white;
+			border-collapse: collapse;
+			width: 1%;
+		}
+		body {
+			background-color: antiquewhite;
+		}
+
+	</style>
 	<div class="section overflow-hidden">
 		<div class="container mt-2xl mb-2xl">
 			<div class="row">
@@ -18,7 +36,7 @@
 		{{ else if and (gt .Score 0.00) (lt .Score 60.00) }}
 			<div style="background-color:#CF2323" class="circle"></div>
 		{{ else if and (gt .Score 80.00) (lt .Score 100.00)}}
-			<div style="background-color:#00cc00" class="circle"></div>
+			<div style="background-color: #5A9969" class="circle"></div>
 		{{ end }}
 	</div>
 	{{ if (lt .Score 80.00) }}
@@ -27,63 +45,126 @@
 			<div class="row">
 				<div class="column align-center">
 					<h2 class="max-w-lg text-center">
-						Here's what's missing from your resume and what to do about it.
+						You're almost there! Use our recommendations to get to the top of the applicant stack.
 					</h2>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="section">
-		<div style="background-color: white; border-radius: 25px"  class="container">
+		<div class="container">
 			<div class="row items-center v-t">
 				<div class="column align-center p-2xl">
-					<div class="container">
-						<h3>Missing</h3>
-						<ul id="incomplete-tasks">
-							{{ if (not .LinkedIn) }}
-								<li><a href="/where-to-add-linkedin-on-resume"  class="u mr-lg">Where to Add LinkedIn</a><input type="checkbox"><label>Add your LinkedIn below your name. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
-							{{ end }}
+					<table style="text-align:center;border-radius: 1em;background-color: white;">
+						<thead>
+						<tr >
+							<th style="text-align:center; background-color: #e86468; color:white;" scope="col">Category</th>
+							<th style="text-align:center; background-color: #e86468; color:white;" scope="col">Analysis</th>
+							<th style="text-align:center; background-color: #e86468; color:white;" scope="col">Our recommendation</th>
+							<th style="text-align:center; background-color: #e86468; color:white;" scope="col">Helpful Links</th>
 
-							{{ if (lt .Measurable 5.00) }}
-								<li><a href="/measurables-on-resume-examples"  class="u mr-lg">Measurable Examples</a><input type="checkbox"><label>{{ .Measurable }} measurable result(s) found, it is recommended to have at least 5.</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
-							{{ end }}
+						</tr>
+						</thead>
+						<tr>
+							<td><b>LinkedIn</b></td>
+							<td>
+								{{ if (.LinkedIn) }}
+									<p>Awesome, you have your LinkedIn URL.
+									</p>
+								{{ else }}
+									<p>No LinkedIn URL found.</p>
+								{{ end }}
+							</td>
+							<td>
+								Add your LinkedIn URL under your name.
+							</td>
+							<td>
+								<a href="/where-to-add-linkedin-on-resume"  class="u mr-lg">Where to Add LinkedIn</a>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Measurable</b></td>
+							<td>
+								{{ if (lt .Measurable 5.00) }}
+									<p>Resume has {{ .Measurable }} measurable outcomes.</p>
+								{{ else if (gt .Measurable 5.00) }}
+									<p>Impressive, you have {{ .Measurable }}, which is above above the suggested minimum of 5!</p>
+								{{ end }}
+							</td>
+							<td>
+								<p> Almost there, get it up to at least 5. </p>
+							</td>
 
-							{{ if (lt .ResumeLength 400.00) }}
-								<li><a href="/why-resume-length-matters"  class="u mr-lg">Why Resume length?</a><input type="checkbox"><label>Make your Resume at least 400 words, right now it is {{ .ResumeLength }}</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
-							{{ end }}
+							<td>
+								<a href="/measurables-on-resume-examples"  class="u mr-lg">Measurable Examples</a>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Resume Length</b></td>
+							<td>
+								Your resume has {{ .ResumeLength }} word(s)
 
-							{{ if (gt .ResumeLength 1000.00) }}
-								<li><a href="/why-resume-length-matters"  class="u mr-lg">Why Resume length?</a><input type="checkbox"><label>Trim some words from your resume. It is {{ .ResumeLength }} and the recommended length is below 1000 words. </label><input type="text"><button class="edit"></button><button class="delete"></button></li>
-							{{ end }}
-
-								<li><a href="/what-are-soft-skills"  class="u mr-lg">What are Soft Skills?</a><input type="checkbox"><label> Add these soft skills: {{ range .SoftSkills }} {{ . }}, {{ end }}</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
-								<li><a href="/what-are-hard-skills"  class="u mr-lg">What are Hard Skills?</a><input type="checkbox"><label> Add these  hard skills: {{ range .HardSkills }} {{ . }}, {{ end }}</label><input type="text"><button class="edit"></button><button class="delete"></button></li>
-						</ul>
+							</td>
+							<td>
+								{{ if and (gt .ResumeLength 400.00) (lt .ResumeLength 1000.00) }}
+									<p>It is the perfect length </p>
+								{{ else if(lt .ResumeLength 400.00) }}
+									<p>It is recommended to have at least 400 words in your resume. </p>
+								{{ else if(gt .ResumeLength 1000.00) }}
+									<p>Too many words. Keep your resume below 1000 words.</p>
+								{{ end }}
+							</td>
+							<td>
+								<a href="/why-resume-length-matters"  class="u mr-lg">Resume length</a>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Hard Skills</b></td>
+							<td>
+								Resume has 1 hard skills.
+							</td>
+							<td>
+								<i>Add these hard skills:</i> {{ range .HardSkills }} {{ . }}, {{ end }}
+							</td>
+							<td>
+								<a href="/what-are-hard-skills"  class="u mr-lg">Hard Skills</a>
+							</td>
+						</tr>
+						<tr>
+							<td><b>Soft Skills</b></td>
+							<td>
+								Resume has 2 soft skills.
+							</td>
+							<td>
+								<i>Add these soft skills:</i> {{ range .SoftSkills }} {{ . }}, {{ end }}
+							</td>
+							<td>
+								<a href="/what-are-soft-skills"  class="u mr-lg">Soft Skills</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+				</div>
+			</div>
+	</div>
+		{{ else }}
+		<div class="section">
+			<div style="background-color: white; border-radius: 25px" class="container mt-2xl mb-2xl">
+				<div class="row">
+					<div class="column align-center">
+						<h2 class="max-w-lg text-center">
+							Perfect.
+						</h2>
+						<p class="text-lg text-left max-w-md">
+							You're resume is ready to go for this job posting.
+						</p>
+						<p class="text-lg text-left max-w-md">
+							Go ahead and apply now!
+						</p>
 					</div>
 				</div>
-			</div>
-		<div class="row items-center v-t">
-			<div class="column align-left p-2xl">
-				<div class="container">
-					<h3>Completed</h3>
-					<ul id="completed-tasks">
-					</ul>
-				</div>
-			</div>
 			</div>
 		</div>
-		{{ else }}
-			<div class="section">
-				<div class="container mt-xl mb-xl">
-					<div class="row">
-						<div class="column align-center">
-							<h2 class="max-w-lg text-center">
-								Excellent resume, go ahead and apply for the job posting.
-							</h2>
-						</div>
-					</div>
-				</div>
-			</div>
 		{{ end }}
 	</div>
 	<div class="section main mt-2xl">
