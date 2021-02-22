@@ -1,130 +1,325 @@
 {{ define "yield" }}
 	<style>
-		/* Tooltip container */
-		.tooltip {
+		html {
+			height: 100%;
+		}
+		#grad1 {
+			background-color: antiquewhite;
+		}
+
+		#msform {
+			text-align: center;
 			position: relative;
-			display: inline-block;
-			border-bottom: 1px dotted #e86468; /* If you want dots under the hoverable text */
+			margin-top: 20px
 		}
 
-		/* Tooltip text */
-		.tooltip .tooltiptext {
-			visibility: hidden;
+		#msform fieldset .form-card {
+			background: white;
+			border: 0 none;
+			border-radius: 25px;
+			box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+			padding: 20px 40px 30px 40px;
+			box-sizing: border-box;
+			width: 94%;
+			margin: 0 3% 20px 3%;
+			position: relative
+		}
+
+		#msform fieldset {
+			background: white;
+			border: 0 none;
+			border-radius: 0.5rem;
+			box-sizing: border-box;
 			width: 100%;
-			top: -5px;
-			right: 105%;
-			background-color: #e86468;
-			color: #fff;
-			text-size: 16px;
+			margin: 0;
+			padding-bottom: 20px;
+			position: relative
+		}
+
+		#msform fieldset:not(:first-of-type) {
+			display: none
+		}
+
+		#msform fieldset .form-card {
 			text-align: left;
-			padding: 5px 5px;
-			border-radius: 6px;
-
-			/* Position the tooltip text - see examples below! */
-			position: absolute;
-			z-index: 1;
+			color: #9E9E9E
 		}
 
-		/* Show the tooltip text when you mouse over the tooltip container */
-		.tooltip:hover .tooltiptext {
-			visibility: visible;
-		}
-		.tooltip .tooltiptext::after {
-			content: " ";
-			position: absolute;
-			top: 50%;
-			left: 100%; /* To the right of the tooltip */
-			margin-top: -5px;
-			border-width: 5px;
-			border-style: solid;
-			border-color: transparent transparent transparent #e86468;
+		#msform input,
+		#msform textarea {
+			padding: 0px 8px 4px 8px;
+			border: none;
+			border-bottom: 1px solid #ccc;
+			border-radius: 0px;
+			margin-bottom: 25px;
+			margin-top: 2px;
+			width: 100%;
+			box-sizing: border-box;
+			color: #2C3E50;
+			font-size: 16px;
+			letter-spacing: 1px
 		}
 
-		.form-item {
+		#msform input:focus,
+		#msform textarea:focus {
+			-moz-box-shadow: none !important;
+			-webkit-box-shadow: none !important;
+			box-shadow: none !important;
+			border: none;
+			font-weight: bold;
+			border-bottom: 2px solid skyblue;
+			outline-width: 0
+		}
+
+		#msform .action-button {
+			width: 100px;
+			background: #e86368;
+			font-weight: bold;
+			color: white;
+			border: 0 none;
+			border-radius: 0px;
+			cursor: pointer;
+			padding: 10px 5px;
+			margin: 10px 5px
+		}
+
+		#msform .action-button:hover,
+		#msform .action-button:focus {
+			box-shadow: 0 0 0 2px white, 0 0 0 3px #e86468;
+		}
+
+		#msform .action-button-previous {
+			width: 100px;
+			background: #616161;
+			font-weight: bold;
+			color: white;
+			border: 0 none;
+			border-radius: 0px;
+			cursor: pointer;
+			padding: 10px 5px;
+			margin: 10px 5px
+		}
+
+		#msform .action-button-previous:hover,
+		#msform .action-button-previous:focus {
+			box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+		}
+
+		select.list-dt {
+			border: none;
+			outline: 0;
+			border-bottom: 1px solid #ccc;
+			padding: 2px 5px 3px 5px;
+			margin: 2px
+		}
+
+		select.list-dt:focus {
+			border-bottom: 2px solid skyblue
+		}
+
+		.card {
+			z-index: 0;
+			border: none;
+			border-radius: 0.5rem;
+			position: relative
+		}
+
+		.fs-title {
+			font-size: 25px;
+			color: #2C3E50;
 			margin-bottom: 10px;
-			width: 100%;
+			font-weight: bold;
+			text-align: left
 		}
 
-		.button:hover {
-			background: #00c8ff;
-		}
-
-		.top {
-			background: #009dff;
-			background:linear-gradient(to right,#009dff 0,#00c8ff 100%);
-			position:fixed;
-			z-index:1031;
-			top:0;
-			left:0;
-			height:20px;
-			transition:all 1s;
-			width:0;
+		#progressbar {
+			margin-bottom: 30px;
 			overflow: hidden;
+			color: lightgrey
 		}
-		.colors {
+
+		#progressbar .active {
+			color: #000000
+		}
+
+		#progressbar li {
+			list-style-type: none;
+			font-size: 12px;
+			width: 33.33%;
+			float: left;
+			position: relative
+		}
+
+		#progressbar #account:before {
+			font-family: FontAwesome;
+			content: "\f022"
+		}
+
+		#progressbar #personal:before {
+			font-family: FontAwesome;
+			content: "\f039"
+		}
+
+		#progressbar #confirm:before {
+			font-family: FontAwesome;
+			content: "\f00c"
+		}
+
+		#progressbar li:before {
+			width: 50px;
+			height: 50px;
+			line-height: 45px;
+			display: block;
+			font-size: 18px;
+			color: #ffffff;
+			background: lightgray;
+			border-radius: 50%;
+			margin: 0 auto 10px auto;
+			padding: 2px
+		}
+
+		#progressbar li:after {
+			content: '';
 			width: 100%;
-			height: 4px;
+			height: 2px;
+			background: lightgray;
+			position: absolute;
+			left: 0;
+			top: 25px;
+			z-index: -1
 		}
+
+		#progressbar li.active:before,
+		#progressbar li.active:after {
+			background: #e86368;
+		}
+
 	</style>
-	<div class="section overflow-hidden">
-		<div class="container mt-2xl mb-2xl">
-			<div class="row">
-				<div class="column align-center">
-					<h1 class="test-giga text-center">
-						Resume Analysis
-					</h1>
-					<div class="row items-center mt-lg _w-full max-w-lg wrap justify-center">
+	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet'>
+	<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+	<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+	<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
+
+	<!-- MultiStep Form -->
+	<div class="container-fluid" id="grad1">
+		<div class="row justify-content-center mt-0">
+			<div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+				<div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+					<h2><strong>Let's Get Started</strong></h2>
+					<p></p>
+					<div class="row">
+						<div class="col-md-12 mx-0">
+							<form id="msform" name="form" action="/review" method="POST" >
+								<!-- progressbar -->
+								<ul id="progressbar">
+									<li class="active" id="account"><strong>Resume</strong></li>
+									<li id="personal"><strong>Job Description</strong></li>
+									<li id="confirm"><strong>Submit</strong></li>
+								</ul> <!-- fieldsets -->
+								<fieldset>
+									<div class="form-card">
+										<h2 class="fs-title">Paste your resume below.</h2>
+										<p class="text-lg text-left max-w-md">
+											Step 1: Open your resume document
+											select all of it (ctrl + a)</p>
+										<p class="text-lg text-left max-w-md">
+											Step 2: Copy (ctrl + c)
+										</p>
+										<p class="text-lg text-left max-w-md">
+											Step 3: Paste it in the box below (ctrl + v)
+										</p>
+										<textarea style="outline: solid 2px #e86468; box-shadow: 0 0 21px #e86468;" autofocus=true class="form-item" type="resume" name="resume" cols="10" rows="10"></textarea>
+									</div>
+									<input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+								</fieldset>
+								<fieldset>
+									<div class="form-card">
+										<h2 class="fs-title">Paste the job description below.</h2>
+										<p class="text-lg text-left max-w-md">
+											Step 1: Go to the job posting and
+											select all of it (ctrl + a)</p>
+										<p class="text-lg text-left max-w-md">
+											Step 2: Copy (ctrl + c)
+										</p>
+										<p class="text-lg text-left max-w-md">
+											Step 3: Paste it in the box below (ctrl + v)
+										</p>
+										<textarea style="outline: solid 2px #e86468; box-shadow: 0 0 21px #e86468;"  autofocus=true class="form-item" type="description" name="description" cols="10" rows="10"></textarea>
+									</div>
+									<input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="next" class="next action-button" value="Next Step" />
+								</fieldset>
+								<fieldset>
+									<div class="form-card">
+										<h2 class="fs-title text-center">Press Submit to View Results</h2> <br><br>
+										<div class="row justify-content-center">
+											<div class="col-3">
+												<button type="submit" form="msform" class="button xl main mt-lg w-button">Submit</button>
+											</div>
+										</div> <br><br>
+									</div>
+								</fieldset>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="circle"></div>
 	</div>
-	{{ template "scanForm" }}
-{{ end }}
+	<script type='text/javascript'>
+		$(document).ready(function(){
+			var current_fs, next_fs, previous_fs; //fieldsets
+			var opacity;
+			$(".next").click(function(){
+				current_fs = $(this).parent();
+				next_fs = $(this).parent().next();
+				//Add Class Active
+				$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+				//show the next fieldset
+				next_fs.show();
+				//hide the current fieldset with style
+				current_fs.animate({opacity: 0}, {
+					step: function(now) {
+						// for making fielset appear animation
+						opacity = 1 - now;
+						current_fs.css({
+							'display': 'none',
+							'position': 'relative'
+						});
+						next_fs.css({'opacity': opacity});
+					},
+					duration: 600
+				});
+			});
+			$(".previous").click(function(){
+				current_fs = $(this).parent();
+				previous_fs = $(this).parent().prev();
+				//Remove class active
+				$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+				//show the previous fieldset
+				previous_fs.show();
+				//hide the current fieldset with style
+				current_fs.animate({opacity: 0}, {
+					step: function(now) {
+						// for making fielset appear animation
+						opacity = 1 - now;
+						current_fs.css({
+							'display': 'none',
+							'position': 'relative'
+						});
+						previous_fs.css({'opacity': opacity});
+					},
+					duration: 600
+				});
+			});
+			$('.radio-group .radio').click(function(){
+				$(this).parent().find('.radio').removeClass('selected');
+				$(this).addClass('selected');
+			});
+			$(".submit").click(function(){
+				return false;
+			})
+		});
+	</script>
 
-{{ define "scanForm" }}
-<form class="form" name="form" action="/review" method="POST" id="ReviewForm">
-{{ csrfField }}
-	<div class="row items-center v-t">
-		<div class="top">
-			<div class="colors"></div>
-		</div>
-		<div class="column align-left p-2xl">
-		</div>
-
-			<div class="column align-center p-2xl">
-				<div class="tooltip">
-					<h3 style="color:#e86468">Resume Below</h3>
-					<span class="tooltiptext">
-					Open your resume, select all, then copy and paste it below. Don't worry about formatting it.
-				</span>
-				</div>
-				<textarea class="form-item" type="resume" name="resume" cols="25" rows="30"></textarea>
-			</div>
-			<div class="column align-center p-2xl">
-				<div class="tooltip">
-					<h3 style="color:#e86468">Job Description Below</h3>
-					<span class="tooltiptext">
-					Copy and paste the job description below, there's no need to format it.
-				</span>
-				</div>
-				<textarea class="form-item" type="description" name="description" cols="25" rows="30"></textarea>
-			</div>
-
-		<div class="column align-center p-2xl"></div>
-	</div>
-	<div class="section main mt-lg">
-		<div class="container mt-lg mb-lg">
-			<div class="row items-center">
-				<div class="column align-center">
-					<div class="section">
-						<button type="submit" form="ReviewForm" class="button xl main white mt-lg w-button">Enter</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</form>
-<script type="text/javascript" src="./../public/js/form.js"></script>
 {{ end }}

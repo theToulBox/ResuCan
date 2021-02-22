@@ -20,14 +20,14 @@ type Static struct {
 // the web app.
 func NewStatic() *Static {
 	return &Static{
-		Home:               views.NewView("css", "static/home"),
-		Privacy:            views.NewView("css", "static/privacy-policy"),
-		Terms:              views.NewView("css", "static/terms-and-conditions"),
-		About:              views.NewView("css", "static/about"),
-		WhereToAddLinkedIn: views.NewView("css", "static/where-to-add-linkedin-on-resume"),
-		MeasurablesExample: views.NewView("css", "static/measurables-on-resume-examples"),
-		ResumeLength:       views.NewView("css", "static/why-resume-length-matters"),
-		HardSkills:         views.NewView("css", "static/what-are-hard-skills"),
-		SoftSkills:         views.NewView("css", "static/what-are-soft-skills"),
+		Home:               views.NewView("bootstrap", "static/home"),
+		Privacy:            views.NewView("bootstrap", "static/privacy-policy"),
+		Terms:              views.NewView("bootstrap", "static/terms-and-conditions"),
+		About:              views.NewView("bootstrap", "static/about"),
+		WhereToAddLinkedIn: views.NewView("bootstrap", "static/where-to-add-linkedin-on-resume"),
+		MeasurablesExample: views.NewView("bootstrap", "static/measurables-on-resume-examples"),
+		ResumeLength:       views.NewView("bootstrap", "static/why-resume-length-matters"),
+		HardSkills:         views.NewView("bootstrap", "static/what-are-hard-skills"),
+		SoftSkills:         views.NewView("bootstrap", "static/what-are-soft-skills"),
 	}
 }
